@@ -7,5 +7,5 @@ export default function Line({width}){
     )
 }
 Line.propTypes = {
-    width: PropTypes.string.isRequired
+    width: PropTypes.number
   }

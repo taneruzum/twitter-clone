@@ -1,6 +1,6 @@
 import { Popover, Disclosure } from "@headlessui/react";
 import { Link } from "react-router-dom";
-import Line from "~/components/button/line";
+import Line from "~/components/line";
 
 export default function More() {
   return (

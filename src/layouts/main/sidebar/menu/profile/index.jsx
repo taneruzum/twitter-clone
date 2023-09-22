@@ -1,8 +1,12 @@
 import React from 'react'
 import { Popover } from '@headlessui/react'
 
+import store from "~/store";
 
-const newUser = '@mr_TannerTube'
+
+const username = store.getState()?.auth?.currentAccount?.userName
+const fullname = store.getState()?.auth?.currentAccount?.fullName
+
 function Profile() {
     return (
         <Popover className="relative w-full">
@@ -12,8 +16,8 @@ function Profile() {
                     <img className='rounded-full' src="/images/MR.png" alt="" width={40} height={40} />
 
                     <div className='flex flex-col '>
-                        <span className='text-white font-bold '>The TanerTube</span>
-                        <span className='text-[#71767B]'> {newUser}</span>
+                        <span className='text-white font-bold '>{username}</span>
+                        <span className='text-[#71767B]'> {fullname}</span>
                     </div>
 
                 </div>
@@ -27,8 +31,8 @@ function Profile() {
                 <div className=" px-3  py-4 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
                     Var olan bir hesap ekle
                 </div>
-                <div className=" px-3 py-4 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]"> 
-                    {newUser} hesabından çıkış yap
+                <div className=" px-3 py-4 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
+                    {fullname} hesabından çıkış yap
                 </div>
 
 
@@ -38,3 +42,4 @@ function Profile() {
     )
 }
 export default Profile
+

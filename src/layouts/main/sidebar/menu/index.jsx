@@ -6,6 +6,7 @@ import New from "./new";
 import { useState, useEffect } from "react";
 
 
+
 export default function Menu() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -22,7 +23,6 @@ export default function Menu() {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  console.log(windowWidth);
 
   return (
     <nav className="mt-0.5 mb-1 ">

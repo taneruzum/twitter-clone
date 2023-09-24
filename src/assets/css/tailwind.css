@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    @apply bg-black text-white text-[15px]
+body {
+    @apply bg-black text-white text-[15px] antialiased;
 }
 
+/** *antialises çalışmıyor - yazıları yumaşıtıyor
 /*
 genişlik:1265px
  sol sidebar :275px,

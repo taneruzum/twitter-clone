@@ -1,6 +1,6 @@
 import Logo from "./logo";
 import Menu from "./menu";
-import Profile from "./menu/profile";
+import Account from "./menu/account";
 
 export default function Sidebar() {
     return (
@@ -10,7 +10,7 @@ export default function Sidebar() {
                 <Menu />
             </div>
 
-            <Profile />
+            <Account />
         </aside>
 
     )

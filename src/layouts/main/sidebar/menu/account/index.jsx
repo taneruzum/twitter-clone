@@ -37,7 +37,7 @@ function Account() {
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
             >
-                <Popover.Panel className="w-[300px] absolute left-1/2 -translate-x-1/2 bottom-[80px] p-2.5 bg-black shadow-box rounded-xl overflow-hidden flex flex-col justify-between items-start ">
+                <Popover.Panel className="w-[300px] absolute left-1/2 -translate-x-1/2 bottom-[80px] py-3   bg-black shadow-box rounded-xl overflow-hidden flex flex-col justify-between items-start ">
                     <MoreAccount />
 
 

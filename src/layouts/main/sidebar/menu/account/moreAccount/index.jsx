@@ -12,10 +12,12 @@ export default function MoreAccount() {
             {accounts.map((account, id) =>
             (
 
-                <button key={id} className={classNames("flex  my-1 justify-between items-center w-full p-3 pr-5 transition-all  outline-none cursor-auto ", {
-                    "hover:bg-[#eff3f41a] cursor-pointer cursor- ": currentAccount.id !== account.id
+                <button key={id} className={classNames("flex  my-1 justify-between items-center w-full p-2.5 pr-5 transition-all  outline-none cursor-auto -order-1", {
+                    "hover:bg-[#eff3f41a] cursor-pointer": currentAccount.id !== account.id,
+                    "-order-2": account.id === currentAccount.id,
                 })}>
-                    <div className='flex gap-x-2 items-center w-full'>
+
+                    <div className="flex gap-x-2 items-center w-full">
 
                         <img className='w-10 h-10 rounded-full ' src={account?.avatar} alt="" />
 
@@ -40,13 +42,13 @@ export default function MoreAccount() {
 
             )
             )}
-            <Line width={100} />
+            <Line size={100} />
             <button className="text-left px-3  py-2.5 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
                 Var olan bir hesap ekle
             </button>
             {accounts?.length > 1 && (<button className="text-left px-3  py-2.5 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">Hesapları Yönet</button>)}
 
-            <button className="text-left px-3 py-2.5 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
+            <button className="text-left px-3  py-2.5 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
                 {currentAccount.fullName} hesabından <br /> çıkış yap
             </button>
         </>

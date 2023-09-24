@@ -1,7 +1,6 @@
-
-import Line from '~/components/line';
-import { useAccount, useAccounts } from '~/store/auth/hooks';
-import classNames from 'classnames';
+import Line from "~/components/line";
+import { useAccount, useAccounts } from "~/store/auth/hooks';
+import classNames from 'classnames";
 
 export default function MoreAccount() {
     const currentAccount = useAccount()

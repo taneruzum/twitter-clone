@@ -4,13 +4,14 @@ import { useAccount, useAccounts } from '~/store/auth/hook';
 export default function MoreAccount() {
     const account = useAccount()
     const accounts = useAccounts()
-    console.log(accounts);
+    
+    console.log(accounts.length);
     return (
         <>
             {accounts.map((account, id) =>
             (
 
-                <div key={id} className={'flex  my-1 justify-between items-center w-full p-3 transition-all cursor-pointer hover:bg-[#eff3f41a] outline-none'}>
+                <button key={id} className={'flex  my-1 justify-between items-center w-full p-3 transition-all cursor-pointer hover:bg-[#eff3f41a] outline-none'}>
                     <div className='flex gap-x-2 items-center'>
 
                         <img className='w-10 h-10 rounded-full ' src={account?.avatar} alt="" />
@@ -22,19 +23,22 @@ export default function MoreAccount() {
 
                     </div>
 
-                </div>
+                </button>
 
 
 
             )
             )}
             <Line width={100} />
-            <div className=" px-3  py-4 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
+            <button className="text-left px-3  py-2.5 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
                 Var olan bir hesap ekle
-            </div>
-            <div className=" px-3 py-4 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
-                {account.fullName} hesabından çıkış yap
-            </div>
+            </button>
+            {accounts?.length >1 &&  (<button className="text-left px-3  py-2.5 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">Hesapları Yönet</button>)}
+
+            <button className="text-left px-3 py-2.5 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
+                {account.fullName} hesabından <br /> çıkış yap
+            </button>
         </>
     )
+    
 }

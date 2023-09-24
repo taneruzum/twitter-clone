@@ -22,7 +22,7 @@ const initialState = {
             id: 2,
             userName: 'Uğur AKÇAY',
             fullName: '@ugurakcaydev',
-            avatar: 'https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png',
+            avatar: 'https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png',
 
         },
 

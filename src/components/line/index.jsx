@@ -1,14 +1,17 @@
+import classNames from "classnames";
 import PropTypes from "prop-types";
-export default function Line({width}){
-    
-    return(
-        <div className={`w-[${width}%] h-[1px] bg-slate-700 mx-auto` }>
-            
-
-        </div>
-    )
+export default function Line({ size }) {
+  return (
+    <div
+      className={classNames(`my-[1px] h-[1px] bg-slate-700 mx-auto`, {
+        "w-[50%]": size === 50,
+        "w-[90%]": size === 90,
+        "w-full": size === 100,
+      })}
+    ></div>
+  );
 }
 
 Line.propTypes = {
-    width: PropTypes.number
-  }
+  size: PropTypes.number,
+};

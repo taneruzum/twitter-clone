@@ -49,15 +49,21 @@ export default function More() {
           </div>
           <div className="text-xl pr-4 font-bold ">Para kazanma</div>
         </button>
-        {/* buraya ince çizgi gelecek */}<Line width={50} />
+        {/* buraya ince çizgi gelecek */}
+        <Line size={90} />
         <Disclosure>
           {({ open }) => (
             <>
               <Disclosure.Button className="h-[52px]  px-4 flex justify-between items-center font-bold w-full hover:bg-[#eff3f41a] transition-colors ">
                 <span>İçerik Üreticisi Stüdyosu</span>
-                <svg viewBox="0 0 24 24" width={18.75} height={18.75} className={classNames({
-                  "rotate-180 text-[#1d9bf0] ": open,
-                })}>
+                <svg
+                  viewBox="0 0 24 24"
+                  width={18.75}
+                  height={18.75}
+                  className={classNames({
+                    "rotate-180 text-[#1d9bf0] ": open,
+                  })}
+                >
                   <g>
                     <path
                       fill="currentColor"
@@ -91,10 +97,14 @@ export default function More() {
             <>
               <Disclosure.Button className="h-[52px] px-4 flex justify-between items-center font-bold w-full hover:bg-[#eff3f41a] transition-colors">
                 <span>Profesyonel Araçlar</span>
-                <svg viewBox="0 0 24 24" width={18.75} height={18.75} className={classNames({
-                  "rotate-180 text-[#1d9bf0] ": open,
-
-                })}>
+                <svg
+                  viewBox="0 0 24 24"
+                  width={18.75}
+                  height={18.75}
+                  className={classNames({
+                    "rotate-180 text-[#1d9bf0] ": open,
+                  })}
+                >
                   <g>
                     <path
                       fill="currentColor"
@@ -119,9 +129,7 @@ export default function More() {
                   Reklamlar
                 </Link>
               </Disclosure.Panel>
-
             </>
-
           )}
         </Disclosure>
         {/* 3. disclosure */}
@@ -130,10 +138,14 @@ export default function More() {
             <>
               <Disclosure.Button className="h-[52px] px-4 flex justify-between items-center font-bold w-full hover:bg-[#eff3f41a] transition-colors">
                 <span>Ayarlar ve Destek</span>
-                <svg viewBox="0 0 24 24" width={18.75} height={18.75} className={classNames({
-                  "rotate-180 text-[#1d9bf0] ": open,
-
-                })}>
+                <svg
+                  viewBox="0 0 24 24"
+                  width={18.75}
+                  height={18.75}
+                  className={classNames({
+                    "rotate-180 text-[#1d9bf0] ": open,
+                  })}
+                >
                   <g>
                     <path
                       fill="currentColor"
@@ -200,7 +212,6 @@ export default function More() {
                   Klavye Kısayolları
                 </Link>
               </Disclosure.Panel>
-
             </>
           )}
         </Disclosure>

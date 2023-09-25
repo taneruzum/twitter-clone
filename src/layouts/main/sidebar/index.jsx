@@ -3,15 +3,12 @@ import Menu from "./menu";
 import Account from "./menu/account";
 
 export default function Sidebar() {
-    return (
-        <aside className="w-[275px] min-h-screen px-2 py-3 flex flex-col items-start justify-between ">
-            <div className="w-full">
-                <Logo />
-                <Menu />
-            </div>
+  return (
+    <aside className="w-[275px] max-h-screen min-h-screen px-2 flex flex-col items-start  sticky top-0  ">
+      <Logo />
+      <Menu />
 
-            <Account />
-        </aside>
-
-    )
+      <Account />
+    </aside>
+  );
 }

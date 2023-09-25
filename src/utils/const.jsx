@@ -49,7 +49,7 @@ export const mainMenu = [
   },
   {
     path: "/notifications",
-    title: "Bldirimler",
+    title: "Bildirimler",
     notification: 4,
     icon: {
       active: (
@@ -181,3 +181,94 @@ export const mainMenu = [
     },
   },
 ];
+
+export const topics = [
+  {
+    title:"Haberler-Gündemdekiler",
+    topic:{
+      type:"tag",
+      value:"sondakika"
+    },
+    postCount:8624
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"query",
+      value:"Operasyon Çocuğu"
+    },
+    postCount:16000
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"query",
+      value:"Arap"
+    },
+    postCount:57000
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+  {
+    title:"Türkiye tarihinde gündemde",
+    topic:{
+      type:"tag",
+      value:"dilanpolat"
+    },
+  },
+
+]

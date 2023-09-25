@@ -25,7 +25,7 @@ export default function Menu() {
   }, []);
 
   return (
-    <nav className="mt-0.5 mb-1 ">
+    <nav className="mt-0.5 mb-1 w-full">
       
         {mainMenu.map((menu, index) => {
           if ( // daha iyi bir yöntem bulana kadar en iyisi bu
@@ -36,7 +36,7 @@ export default function Menu() {
             return null;
           }
           return (
-            <NavLink to={menu.path} className="py-[.2px] block group" key={index}>
+            <NavLink to={menu.path} className="py-[3px] block group" key={index}>
               {({ isActive }) => (
                 <div
                   className={classNames(
@@ -55,7 +55,7 @@ export default function Menu() {
                     {!isActive && menu.icon.passive}
                     {isActive && menu.icon.active}
                   </div>
-                  <div className={"text-xl pr-4"}>
+                  <div className={"text-xl pr-4 text-[#e7e9ea]"}>
                     {menu.title}
                   </div>
                 </div>

@@ -22,8 +22,8 @@ export default function MoreAccount() {
                         <img className='w-10 h-10 rounded-full ' src={account?.avatar} alt="" />
 
                         <div className='flex flex-col '>
-                            <span className='text-white font-bold text-left '>{account?.userName}</span>
-                            <span className='text-[#71767B] text-left'> {account?.fullName}</span>
+                            <span className=' font-bold text-left '>{account?.userName}</span>
+                            <span className='text-[color:var(--color-base-secondary)] text-left'> {account?.fullName}</span>
                         </div>
 
                         {currentAccount?.id === account?.id && (
@@ -43,12 +43,12 @@ export default function MoreAccount() {
             )
             )}
             <Line size={100} />
-            <button className="text-left px-3  py-2.5 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
+            <button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
                 Var olan bir hesap ekle
             </button>
-            {accounts?.length > 1 && (<button className="text-left px-3  py-2.5 font-bold text-white w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">Hesapları Yönet</button>)}
+            {accounts?.length > 1 && (<button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">Hesapları Yönet</button>)}
 
-            <button className="text-left px-3  py-2.5 font-bold text-white  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
+            <button className="text-left px-3  py-2.5 font-bold  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
                 {currentAccount.fullName} hesabından <br /> çıkış yap
             </button>
         </>

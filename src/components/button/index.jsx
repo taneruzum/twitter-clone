@@ -23,7 +23,8 @@ Button.propTypes = {
   size: PropTypes.oneOf(['small', 'normal', 'large']),
   variant: PropTypes.oneOf(['primary', 'white', 'white-outline']),
   props: PropTypes.object,
-  className: PropTypes.string
+  className: PropTypes.string,
+  children:PropTypes.any
 }
 
 Button.defaultProps = {

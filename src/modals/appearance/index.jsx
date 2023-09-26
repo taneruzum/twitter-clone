@@ -8,7 +8,7 @@ export default function AppearanceModal() {
         Görünümü özelleştir
       </h3>
       <div className="p-8 pt-0">
-        <p className="text-center text-[#71767b] leading-5 text-[15px] mb-5">
+        <p className="text-center text-[color:var(--color-base-secondary)] leading-5 text-[15px] mb-5">
           Bu ayarlar, bu tarayıcıdaki tüm X hesaplarını etkiler
         </p>
         <div className="mx-8 mb-4  ">
@@ -33,15 +33,15 @@ export default function AppearanceModal() {
                     />
                   </svg>
                 </div>
-                <div className="ml-1 flex items-center text-[#71767b] ">
+                <div className="ml-1 flex items-center text-[color:var(--color-base-secondary)] ">
                   @X . 31d
                 </div>
               </header>
-              <div className="text-[#e7e9ea] leading-5 text-[15px]">
+              <div className="text-[color:var(--color-base)] leading-5 text-[15px]">
                 X&apos;in merkezinde, tıpkı bunun gibi gönderi denen kısa
                 mesajlar yatar. Gönderiler; fotoğraflar, videolar, bağlantılar,
                 metinler, etiketler ve{" "}
-                <Link className="text-[#1d9bf0] hover:underline" to="/x">
+                <Link className="text-[color:var(--color-primary)] hover:underline" to="/x">
                   @X
                 </Link>{" "}
                 gibi bahsetmeler içerebilir.

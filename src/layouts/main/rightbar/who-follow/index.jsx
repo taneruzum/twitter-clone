@@ -1,4 +1,4 @@
-import Button from "~/components/button";
+
 import SidebarSection from "~/components/sidebar-section";
 import UserCards from "~/components/user-cards";
 import { whoFollowUsers } from "~/mock";

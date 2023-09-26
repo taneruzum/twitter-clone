@@ -2,8 +2,8 @@ import Button from "../../../../components/button";
 export default function Premium() {
   return (
     <section
-      className="bg-[#16181c] mb-4 rounded-2xl border border-[#16181c]
-        pt-2 pb-3 px-4 flex flex-col gap-2 text-[#e7e9ea] 
+      className="bg-[color:var(--background-secondary)] mb-4 rounded-2xl border border-[color:var(--background-secondary)]
+        pt-2 pb-3 px-4 flex flex-col gap-2    
         "
     >
       {/*gap şuan 2 ama 2.5 olabilir ilerde*/}

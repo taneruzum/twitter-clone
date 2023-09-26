@@ -21,7 +21,7 @@ function Account() {
           />
 
           <div className="flex flex-col p-1 ">
-            <span className="text-white font-bold text-left flex items-center justify-start  ">
+            <span className=" font-bold text-left flex items-center justify-start  ">
               {account.userName}
               <svg
                 viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ function Account() {
                 />
               </svg>
             </span>
-            <span className="text-[#71767B] text-left">
+            <span className="text-[color:var(--color-base-secondary)] text-left">
               {" "}
               {account.fullName}
             </span>
@@ -60,7 +60,7 @@ function Account() {
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <Popover.Panel className="w-[300px] absolute left-1/2 -translate-x-1/2 bottom-[80px] py-3   bg-black shadow-box rounded-xl overflow-hidden flex flex-col justify-between items-start ">
+        <Popover.Panel className="w-[300px] absolute left-1/2 -translate-x-1/2 bottom-[80px] py-3   bg-[color:var(--background-primary)] shadow-box rounded-xl overflow-hidden flex flex-col justify-between items-start ">
           <MoreAccount />
         </Popover.Panel>
       </Transition>

@@ -2,6 +2,7 @@ import { Popover, Disclosure } from "@headlessui/react";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 import Line from "~/components/line";
+import { setModal } from "~/store/modal/actions";
 
 export default function More() {
   return (
@@ -183,8 +184,8 @@ export default function More() {
                   </svg>
                   Yardım Merkezi
                 </Link>
-                <Link
-                  to="/"
+                <button
+                  onClick={()=>setModal("appearance")}
                   className="flex gap-2 py-2 px-4 items-center justify-start w-full hover:bg-[#eff3f41a] transition-colors text-[15px] "
                 >
                   <svg viewBox="0 0 24 24" width={18.75} height={18.75}>
@@ -196,7 +197,7 @@ export default function More() {
                     </g>
                   </svg>
                   Görünüm
-                </Link>
+                </button>
                 <Link
                   to="/"
                   className="flex gap-2 py-2 px-4 items-center justify-start w-full hover:bg-[#eff3f41a] transition-colors text-[15px]"

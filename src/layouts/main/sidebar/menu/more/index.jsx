@@ -168,6 +168,7 @@ export default function More() {
                       ></path>
                     </g>
                   </svg>
+
                   Ayalar ve gizlilik
                 </Link>
                 <Link
@@ -188,14 +189,7 @@ export default function More() {
                   onClick={() => setModal("appearance")}
                   className="flex gap-2 py-2 px-4 items-center justify-start w-full hover:bg-[color:var(--background-secondary)] transition-colors text-[15px] "
                 >
-                  <svg viewBox="0 0 24 24" width={18.75} height={18.75}>
-                    <g>
-                      <path
-                        fill="currentColor"
-                        d="M14 12c0-1.1-.9-2-2-2-1.11 0-2 .9-2 2v2h2c1.1 0 2-.9 2-2z"
-                      ></path>
-                    </g>
-                  </svg>
+                  <svg viewBox="0 0 24 24" width={18.75} height={18.75} ><path fill="currentColor" d="M20 12h2v6.5c0 1.38-1.12 2.5-2.5 2.5h-15C3.12 21 2 19.88 2 18.5v-13C2 4.12 3.12 3 4.5 3H11v2H4.5c-.28 0-.5.22-.5.5v13c0 .28.22.5.5.5h15c.27 0 .5-.22.5-.5V12zm2.31-6.78l-6.33 7.18c-.2 2.02-1.91 3.6-3.98 3.6H8v-4c0-2.07 1.58-3.78 3.6-3.98l7.18-6.33c.99-.88 2.49-.83 3.43.1.93.94.98 2.44.1 3.43zm-1.52-2.01c-.19-.19-.49-.2-.69-.02l-6.08 5.36c.59.35 1.08.84 1.43 1.43l5.36-6.08c.18-.2.17-.5-.02-.69z"></path></svg>
                   Görünüm
                 </button>
                 <Link

@@ -46,7 +46,7 @@ export default function Menu() {
               >
                 <div className="w-[26.25px] h-[26.25px] relative">
                   {menu?.notification && (
-                    <span className="w-[18px] h-[18px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)] border border[color:var(--background-primary)]  rounded-full bg-[#1d9bf0] absolute -top-1.5 -right-1 flex justify-center items-center text-[11px]">
+                    <span className="w-[18px] h-[18px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full bg-[#1d9bf0] absolute -top-1.5 -right-1 flex justify-center items-center text-[11px]">
                       {menu?.notification}
                     </span>
                   )}

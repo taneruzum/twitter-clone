@@ -55,7 +55,7 @@ export default function Search() {
         )}
       </label>
       {focus && (
-        <div className="w-[350px] absolute top-full -left-px -translate-y-1 bg-black shadow-box  max-h-[calc(80vh-53px)] rounded-lg  text-center min-h-[100px]">
+        <div className="w-[350px] absolute top-full -left-px -translate-y-1 bg-[color:var(--background-primary)] shadow-box  max-h-[calc(80vh-53px)] rounded-lg  text-center min-h-[100px]">
           <p className="p-3 pt-5 text-[color:var(--color-base-secondary)] text-center leading-5">
             Kişileri, listeleri veya anahtar kelimeleri aramayı dene
           </p>

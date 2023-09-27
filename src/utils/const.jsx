@@ -242,33 +242,33 @@ export const topics = [
       value:"dilanpolat"
     },
   },
-  {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
-    },
-  },
-  {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
-    },
-  },
-  {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
-    },
-  },
-  {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
-    },
-  },
+  // {
+  //   title:"Türkiye tarihinde gündemde",
+  //   topic:{
+  //     type:"tag",
+  //     value:"dilanpolat"
+  //   },
+  // },
+  // {
+  //   title:"Türkiye tarihinde gündemde",
+  //   topic:{
+  //     type:"tag",
+  //     value:"dilanpolat"
+  //   },
+  // },
+  // {
+  //   title:"Türkiye tarihinde gündemde",
+  //   topic:{
+  //     type:"tag",
+  //     value:"dilanpolat"
+  //   },
+  // },
+  // {
+  //   title:"Türkiye tarihinde gündemde",
+  //   topic:{
+  //     type:"tag",
+  //     value:"dilanpolat"
+  //   },
+  // },
 
 ]

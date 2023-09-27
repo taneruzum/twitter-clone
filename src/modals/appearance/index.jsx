@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "~/components/button";
 
 export default function AppearanceModal() {
   return (
@@ -12,7 +13,7 @@ export default function AppearanceModal() {
           Bu ayarlar, bu tarayıcıdaki tüm X hesaplarını etkiler
         </p>
         <div className="mx-8 mb-4  ">
-          <div className="border border-[#2f3336] px-4 flex py-3 gap-3 rounded-2xl">
+          <div className="border border-[color:var(--background-third)] px-4 flex py-3 gap-3 rounded-2xl">
             <img
               src="https://pbs.twimg.com/profile_images/1683899100922511378/5lY42eHs_x96.jpg"
               alt=""
@@ -25,7 +26,7 @@ export default function AppearanceModal() {
                   <svg
                     viewBox="0 0 22 22"
                     height={18.75}
-                    className="text-[#1d9bf0] ml-0.5"
+                    className="text-[color:var(--color-primary)] ml-0.5"
                   >
                     <path
                       fill="currentColor"
@@ -41,13 +42,59 @@ export default function AppearanceModal() {
                 X&apos;in merkezinde, tıpkı bunun gibi gönderi denen kısa
                 mesajlar yatar. Gönderiler; fotoğraflar, videolar, bağlantılar,
                 metinler, etiketler ve{" "}
-                <Link className="text-[color:var(--color-primary)] hover:underline" to="/x">
+                <Link
+                  className="text-[color:var(--color-primary)] hover:underline"
+                  to="/x"
+                >
                   @X
                 </Link>{" "}
                 gibi bahsetmeler içerebilir.
               </div>
             </div>
           </div>
+        </div>
+        <div>
+          <h6 className="text-[color:var(--color-base-secondary)] mb-1 leading-5 text-[13px] font-bold">
+            Arka Plan
+          </h6>
+          <div className="py-2 px-3 mb-3 grid grid-cols-3  bg-[#16181c] rounded-2xl">
+            <button className="border border-[#425364] w-[154.33px] h-[62px] min-h-[64px] bg-[#fff] cursor-pointer rounded flex items-center justify-center gap-1">
+              <div className=" flex items-center justify-center rounded-full p-2 cursor-pointer hover:bg-[#3682ce1a]">
+                <input
+                  type="radio"
+                  name=""
+                  id=""
+                  className="border-[#b9cad3] cursor-pointer outline-none border-2 w-[20px] h-[20px] "
+                />
+              </div>
+              <span className="text-black font-bold">Varsayılan</span>
+            </button>
+            <button className="border border-[#333639] w-[154.33px] h-[62px] min-h-[64px] bg-[#15202b] cursor-pointer rounded flex items-center justify-center gap-4">
+              <div className=" flex items-center justify-center rounded-full p-2 cursor-pointer hover:bg-[#3682ce1a]">
+                <input
+                  type="radio"
+                  name=""
+                  id=""
+                  className="border-[#b9cad3] cursor-pointer outline-none border-2 w-[20px] h-[20px] "
+                />
+              </div>
+              <span className="text-white font-bold">Loş</span>
+            </button>
+            <button className="border border-[#425364] w-[154.33px] h-[62px] min-h-[64px] bg-[#000] cursor-pointer rounded flex items-center justify-center gap-1">
+              <div className=" flex items-center justify-center rounded-full p-2 cursor-pointer hover:bg-[#3682ce1a]">
+                <input
+                  type="radio"
+                  name=""
+                  id=""
+                  className="border-[#b9cad3] cursor-pointer outline-none border-2 w-[20px] h-[20px] "
+                />
+              </div>
+              <span className="text-white font-bold">Işıkları kapat</span>
+            </button>
+          </div>
+        </div>
+        <div className="flex items-center justify-center">
+          <Button>Bitti</Button>
         </div>
       </div>
     </div>

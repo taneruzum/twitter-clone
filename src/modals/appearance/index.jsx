@@ -52,7 +52,7 @@ export default function AppearanceModal({ close }) {
                 X&apos;in merkezinde, tıpkı bunun gibi gönderi denen kısa
                 mesajlar yatar. Gönderiler; fotoğraflar, videolar, bağlantılar,
                 metinler, etiketler ve{" "}
-                <Link className="text-[#1d9bf0] hover:underline" to="/x">
+                <Link className="text-[color:var(--color-primary)] hover:underline" to="/x">
                   @X
                 </Link>{" "}
                 gibi bahsetmeler içerebilir.

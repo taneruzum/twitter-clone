@@ -10,7 +10,7 @@ function Account() {
     <Popover className="relative w-full mb-3 mr-1 mt-auto">
       <Popover.Button
         className={
-          "flex max-h-[65.06px] justify-between items-center w-full p-3 rounded-full  transition-all hover:bg-[#eff3f41a] outline-none"
+          "flex max-h-[65.06px] justify-between items-center w-full p-3 rounded-full  transition-all hover:bg-[color:var(--background-third)] outline-none"
         }
       >
         <div className="flex gap-x-2 items-center">
@@ -46,7 +46,7 @@ function Account() {
         <svg viewBox="0 0 24 24" width={18.75} height={18.75}>
           <g>
             <path
-              fill="#fff"
+              fill="currentColor"
               d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"
             ></path>
           </g>

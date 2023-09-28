@@ -6,14 +6,13 @@ export default function MoreAccount() {
     const currentAccount = useAccount()
     const accounts = useAccounts()
 
-    console.log(accounts.length);
     return (
         <>
             {accounts.map((account, id) =>
             (
 
                 <button key={id} className={classNames("flex  my-1 justify-between items-center w-full p-2.5 pr-5 transition-all  outline-none cursor-auto -order-1", {
-                    "hover:bg-[#eff3f41a] cursor-pointer": currentAccount.id !== account.id,
+                    "hover:bg-[color:var(--background-secondary)] cursor-pointer": currentAccount.id !== account.id,
                     "-order-2": account.id === currentAccount.id,
                 })}>
 
@@ -43,12 +42,12 @@ export default function MoreAccount() {
             )
             )}
             <Line size={100} />
-            <button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">
+            <button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[color:var(--background-secondary)] ">
                 Var olan bir hesap ekle
             </button>
-            {accounts?.length > 1 && (<button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[#eff3f41a] ">Hesapları Yönet</button>)}
+            {accounts?.length > 1 && (<button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[color:var(--background-secondary)] ">Hesapları Yönet</button>)}
 
-            <button className="text-left px-3  py-2.5 font-bold  w-full transition-all cursor-pointer hover:bg-[#eff3f41a]">
+            <button className="text-left px-3  py-2.5 font-bold  w-full transition-all cursor-pointer hover:bg-[color:var(--background-secondary)]">
                 {currentAccount.fullName} hesabından <br /> çıkış yap
             </button>
         </>

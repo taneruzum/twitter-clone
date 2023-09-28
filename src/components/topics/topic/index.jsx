@@ -6,7 +6,7 @@ import { Popover } from "@headlessui/react";
 
 export default function Topic({ item }) {
   return (
-    <Link to="/" className="py-3 px-4 hover:bg-white/[0.03] w-full relative">
+    <Link to="/" className="py-3 px-4  hover:bg-[color:var(--background-third)] w-full relative">
       <div className="text-[13px] text-[color:var(--color-base-secondary)] leading-4">{item.title} </div>
       <div className="text-[15px]  leading-5 font-bold mt-0.5">
         {item.topic.type === "tag" && "#"}

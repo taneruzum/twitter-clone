@@ -138,7 +138,7 @@ export const mainMenu = [
   },
   {
     path: "/approved",
-    title: "Onaylanmış",
+    title: "Premium",
     icon: {
       active: (
         <svg viewBox="0 0 24 24" width={26.25} height={26.25} className="block">
@@ -271,4 +271,31 @@ export const topics = [
   //   },
   // },
 
+]
+
+export const colors = [
+	{
+		primary: '#1d9bf0',
+		secondary: '#8ecdf8'
+	},
+	{
+		primary: '#ffd400',
+		secondary: '#ffea80'
+	},
+	{
+		primary: '#f91880',
+		secondary: '#fc8cc0'
+	},
+	{
+		primary: '#7856ff',
+		secondary: '#bcabff'
+	},
+	{
+		primary: '#ff7a00',
+		secondary: '#ffbd80'
+	},
+	{
+		primary: '#00ba7c',
+		secondary: '#80ddbe'
+	}
 ]

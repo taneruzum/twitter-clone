@@ -7,19 +7,27 @@ import {
   setBackgroundColor,
   setBoxShadow,
   setColor,
+  setFontSize,
 } from "~/store/appearance/actions";
-import { colors } from "~/utils/const";
+import { colors, fontSizes } from "~/utils/const";
+import { useEffect, useState } from "react";
 
 export default function AppearanceModal({ close }) {
-  const { backgroundColor, color } = useAppearance();
+  const { backgroundColor, color, fontSize } = useAppearance();
+
+  const [fontSizePercent, setFontSizePercent] = useState(0)
+
+  useEffect(() => {
+    setTimeout(() => setFontSizePercent(document.querySelector(".active-font-size").offsetLeft + 5), 1)
+  }, [fontSize])
 
   return (
     <div className="w-[600px]">
-      <h3 className="mt-8 mb-3 text-[23px] leading-7 font-extrabold text-center">
+      <h3 className="mt-8 mb-3 text-[1.438rem] leading-7 font-extrabold text-center">
         Görünümünü özelleştir
       </h3>
       <div className="p-8 pt-0">
-        <p className="text-center text-[color:var(--color-base-secondary)] leading-5 text-[15px] mb-5">
+        <p className="text-center text-[color:var(--color-base-secondary)] leading-5 text-[0.938rem] mb-5">
           Bu ayarlar, bu tarayıcıdaki tüm X hesaplarını etkiler.
         </p>
         <div className="mx-8 mb-4">
@@ -30,7 +38,7 @@ export default function AppearanceModal({ close }) {
               className="w-10 h-10 rounded-full object-cover"
             />
             <div className="flex-1 flex flex-col">
-              <header className="mb-0.5 leading-5 text-[15px] flex items-center">
+              <header className="mb-0.5 leading-5 flex items-center">
                 <div className="font-bold flex items-center">
                   X
                   <svg
@@ -48,7 +56,7 @@ export default function AppearanceModal({ close }) {
                   @X · 31d
                 </div>
               </header>
-              <div className="text-[color:var(--color-base)] leading-5 text-[15px]">
+              <div className="text-[color:var(--color-base)] leading-5 ">
                 X&apos;in merkezinde, tıpkı bunun gibi gönderi denen kısa
                 mesajlar yatar. Gönderiler; fotoğraflar, videolar, bağlantılar,
                 metinler, etiketler ve{" "}
@@ -61,7 +69,43 @@ export default function AppearanceModal({ close }) {
           </div>
         </div>
 
-        <section>
+        <section className="mb-3">
+          <h6 className="text-[color:var(--color-base-secondary)] mb-1 leading-5 text-[13px] font-bold">
+            Yazı tipi boyutu
+          </h6>
+          <div className="bg-[color:var(--background-secondary)] px-4 py-3 rounded-2xl flex justify-between items-center">
+            <div className="text-[0.813rem]">Aa</div>
+
+            <div className="flex-1 flex justify-between  h-1 rounded-full bg-[color:var(--color-secondary)] mx-3 relative">
+              <div style={{ width: fontSizePercent }} className="absolute h-full top-0 left-0 rounded-full bg-[color:var(--color-primary)]  "></div>
+              <div className="w-[calc(100%+16px)] flex justify-between absolute -left-[8px] -top-3.5">
+                {fontSizes.map(fs => (
+                  <button
+                    type="button"
+                    onClick={() => setFontSize(fs)}
+                    className={classNames("before:absolute before:inset-0 before:rounded-full before:hover:bg-[color:var(--color-primary)] before:opacity-10 flex items-center justify-center  relative w-8 h-8 rounded-full  ",
+                      {
+                        "active-font-size": fs === fontSize,
+
+
+                      })}>
+                    <div className={classNames("w-3 h-3 rounded-full bg-[color:var(--color-secondary)]",
+                      {
+                        "w-4 h-4": fs === fontSize,
+                        "!bg-[color:var(--color-primary)]": fs <= fontSize,
+
+                      })}></div>
+
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="text-[1.25rem]">Aa</div>
+          </div>
+        </section>
+
+        <section className="mb-3">
           <h6 className="text-[color:var(--color-base-secondary)] mb-1 leading-5 text-[13px] font-bold">
             Renk
           </h6>
@@ -76,7 +120,7 @@ export default function AppearanceModal({ close }) {
                   });
                 }}
                 style={{ "--bg": c.primary }}
-                className="w-10 h-10 rounded-full bg-[color:var(--bg)] flex items-center justify-center text-white"
+                className="w-[40px] h-[40px] rounded-full bg-[color:var(--bg)] flex items-center justify-center text-white"
               >
                 {color.primary === c.primary && (
                   <svg viewBox="0 0 24 24" width={25}>
@@ -91,7 +135,7 @@ export default function AppearanceModal({ close }) {
           </div>
         </section>
 
-        <section>
+        <section className="mb-3">
           <h6 className="text-[color:var(--color-base-secondary)] mb-1 leading-5 text-[13px] font-bold">
             Arka plan
           </h6>
@@ -115,17 +159,17 @@ export default function AppearanceModal({ close }) {
                 );
               }}
               className={classNames(
-                "h-16 pr-3 pl-2 bg-white text-[#0f1419] border font-bold border-white/10 rounded group flex items-center gap-1.5",
+                "h-[62px] pr-3 pl-2 bg-white text-[#0f1419] border font-bold border-white/10 rounded group flex items-center gap-1.5",
                 {
                   "!border-[color:var(--color-primary)] !border-2":
                     backgroundColor.name === "light",
                 }
               )}
             >
-              <div className="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-black/5 flex items-center justify-center">
+              <div className="w-[40px] h-[40px] rounded-full flex-shrink-0 group-hover:bg-black/5 flex items-center justify-center">
                 <div
                   className={classNames(
-                    "w-5 h-5 rounded-full border-2 border-[#b9cad3] flex items-center justify-center",
+                    "w-[20px] h-[20px] rounded-full border-[2px] border-[#b9cad3] flex items-center justify-center",
                     {
                       "!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] text-white":
                         backgroundColor.name === "light",
@@ -142,7 +186,7 @@ export default function AppearanceModal({ close }) {
                   )}
                 </div>
               </div>
-              Varsayılan
+              <div className="truncate">Varsayılan</div>
             </button>
             <button
               onClick={() => {
@@ -163,17 +207,17 @@ export default function AppearanceModal({ close }) {
                 );
               }}
               className={classNames(
-                "h-16 pr-3 pl-2 bg-[#15202b] text-[#f7f9f9] border font-bold border-white/10 rounded group flex items-center gap-1.5",
+                "h-[62px] pr-3 pl-2 bg-[#15202b] text-[#f7f9f9] border font-bold border-white/10 rounded group flex items-center gap-1.5",
                 {
                   "!border-[color:var(--color-primary)] !border-2":
                     backgroundColor.name === "dark",
                 }
               )}
             >
-              <div className="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-white/5 flex items-center justify-center">
+              <div className="w-[40px] h-[40px] rounded-full flex-shrink-0 group-hover:bg-white/5 flex items-center justify-center">
                 <div
                   className={classNames(
-                    "w-5 h-5 rounded-full border-2 border-[#5c6e7e] flex items-center justify-center",
+                    "w-[20px] h-[20px] rounded-full border-[2px] border-[#5c6e7e] flex items-center justify-center",
                     {
                       "!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] text-white":
                         backgroundColor.name === "dark",
@@ -190,7 +234,7 @@ export default function AppearanceModal({ close }) {
                   )}
                 </div>
               </div>
-              Loş
+              <div className="truncate">Loş</div>
             </button>
             <button
               onClick={() => {
@@ -211,17 +255,17 @@ export default function AppearanceModal({ close }) {
                 );
               }}
               className={classNames(
-                "h-16 pr-3 pl-2 bg-black text-[#f7f9f9] border font-bold border-white/10 rounded group flex items-center gap-1.5",
+                "h-[62px] pr-3 pl-2 bg-black text-[#f7f9f9] border font-bold border-white/10 rounded group flex items-center gap-1.5",
                 {
                   "!border-[color:var(--color-primary)] !border-2":
                     backgroundColor.name === "darker",
                 }
               )}
             >
-              <div className="w-10 h-10 rounded-full flex-shrink-0 group-hover:bg-white/10 flex items-center justify-center">
+              <div className="w-[40px] h-[40px] rounded-full flex-shrink-0 group-hover:bg-white/10 flex items-center justify-center">
                 <div
                   className={classNames(
-                    "w-5 h-5 rounded-full border-2 border-[#3e4144] flex items-center justify-center",
+                    "w-[20px] h-[20px] rounded-full border-[2px] border-[#3e4144] flex items-center justify-center",
                     {
                       "!border-[color:var(--color-primary)] !bg-[color:var(--color-primary)] text-white":
                         backgroundColor.name === "darker",
@@ -238,12 +282,13 @@ export default function AppearanceModal({ close }) {
                   )}
                 </div>
               </div>
-              Işıklar kapalı
+              <div className="truncate">Işıklar kapalı</div>
+              {/* //* truncate: overflow-hidden , no-wrap, white-space bunların birleşimi */}
             </button>
           </div>
         </section>
 
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center pt-4">
           <Button onClick={close}>Bitti</Button>
         </div>
       </div>

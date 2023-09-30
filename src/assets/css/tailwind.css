@@ -2,11 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    @apply bg-[color:var(--background-primary)] text-[color:var(--color-base)] text-[15px] antialiased;
+:root {
+
+    font-size: var(--font-size);
 }
 
-.shadow-box{
+body {
+    @apply bg-[color:var(--background-primary)] text-[color:var(--color-base)] text-[0.938rem] antialiased;
+}
+
+.shadow-box {
     box-shadow: var(--box-shadow);
 }
 

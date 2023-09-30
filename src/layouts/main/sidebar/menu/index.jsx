@@ -46,8 +46,12 @@ export default function Menu() {
               >
                 <div className="w-[26.25px] h-[26.25px] relative">
                   {menu?.notification && (
-                    <span className="w-[18px] h-[18px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full bg-[#1d9bf0] absolute -top-1.5 -right-1 flex justify-center items-center text-[11px]">
+                    <span className="w-[18px] h-[18px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full  absolute -top-1.5 -right-1 flex justify-center items-center text-[11px]">
                       {menu?.notification}
+                    </span>
+                  )}
+                  {menu?.newPost > 1 && (
+                    <span className="w-[8px] h-[8px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full  absolute -top-1 -right-0 flex justify-center items-center">
                     </span>
                   )}
                   {!isActive && menu.icon.passive}

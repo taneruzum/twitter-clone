@@ -6,6 +6,7 @@ export const mainMenu = [
   {
     path: "/",
     title: "Anasayfa",
+    newPost: 15,
     icon: {
       active: (
         <svg viewBox="0 0 24 24" width={26.25} height={26.25} className="block">
@@ -184,62 +185,62 @@ export const mainMenu = [
 
 export const topics = [
   {
-    title:"Haberler-Gündemdekiler",
-    topic:{
-      type:"tag",
-      value:"sondakika"
+    title: "Haberler-Gündemdekiler",
+    topic: {
+      type: "tag",
+      value: "sondakika"
     },
-    postCount:8624
+    postCount: 8624
   },
   {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"query",
-      value:"Operasyon Çocuğu"
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "query",
+      value: "Operasyon Çocuğu"
     },
-    postCount:16000
+    postCount: 16000
   },
   {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"query",
-      value:"Arap"
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "query",
+      value: "Arap"
     },
-    postCount:57000
+    postCount: 57000
   },
   {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
-    },
-  },
-  {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "tag",
+      value: "dilanpolat"
     },
   },
   {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "tag",
+      value: "dilanpolat"
     },
   },
   {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "tag",
+      value: "dilanpolat"
     },
   },
   {
-    title:"Türkiye tarihinde gündemde",
-    topic:{
-      type:"tag",
-      value:"dilanpolat"
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "tag",
+      value: "dilanpolat"
+    },
+  },
+  {
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "tag",
+      value: "dilanpolat"
     },
   },
   // {
@@ -274,28 +275,36 @@ export const topics = [
 ]
 
 export const colors = [
-	{
-		primary: '#1d9bf0',
-		secondary: '#8ecdf8'
-	},
-	{
-		primary: '#ffd400',
-		secondary: '#ffea80'
-	},
-	{
-		primary: '#f91880',
-		secondary: '#fc8cc0'
-	},
-	{
-		primary: '#7856ff',
-		secondary: '#bcabff'
-	},
-	{
-		primary: '#ff7a00',
-		secondary: '#ffbd80'
-	},
-	{
-		primary: '#00ba7c',
-		secondary: '#80ddbe'
-	}
+  {
+    primary: '#1d9bf0',
+    secondary: '#8ecdf8'
+  },
+  {
+    primary: '#ffd400',
+    secondary: '#ffea80'
+  },
+  {
+    primary: '#f91880',
+    secondary: '#fc8cc0'
+  },
+  {
+    primary: '#7856ff',
+    secondary: '#bcabff'
+  },
+  {
+    primary: '#ff7a00',
+    secondary: '#ffbd80'
+  },
+  {
+    primary: '#00ba7c',
+    secondary: '#80ddbe'
+  }
+]
+
+export const fontSizes = [
+  14,
+  15,
+  16,
+  18,
+  19,
 ]

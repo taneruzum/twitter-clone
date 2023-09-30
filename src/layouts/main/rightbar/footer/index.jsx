@@ -7,43 +7,43 @@ export default function Footer() {
     <footer className="mb-4 px-4 flex flex-wrap gap-2">
       <Link
         to="/"
-        className="text-[color:var(--color-base-secondary)] leading-4 text-[13px] hover:underline"
+        className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem] hover:underline"
       >
         Hizmet Şartları
       </Link>
       <Link
         to="/"
-        className="text-[color:var(--color-base-secondary)] leading-4 text-[13px] hover:underline"
+        className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem] hover:underline"
       >
         Gizlilik Politikası
       </Link>
       <Link
         to="/"
-        className="text-[color:var(--color-base-secondary)] leading-4 text-[13px] hover:underline"
+        className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem] hover:underline"
       >
         Çerez Politikası
       </Link>
       <Link
         to="/"
-        className="text-[color:var(--color-base-secondary)] leading-4 text-[13px] hover:underline"
+        className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem] hover:underline"
       >
         Imprint
       </Link>
       <Link
         to="/"
-        className="text-[color:var(--color-base-secondary)] leading-4 text-[13px] hover:underline"
+        className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem] hover:underline"
       >
         Erişilebilirlik
       </Link>
       <Link
         to="/"
-        className="text-[color:var(--color-base-secondary)] leading-4 text-[13px] hover:underline"
+        className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem] hover:underline"
       >
         Reklam bilgisi
       </Link>
       <div className="w-full flex gap-2">
         <Popover className="relative inline-flex leading-4">
-          <Popover.Button className="text-[color:var(--color-base-secondary)] outline-none leading-4 text-[13px] hover:underline inline-flex items-center">
+          <Popover.Button className="text-[color:var(--color-base-secondary)] outline-none leading-4 text-[0.813rem] hover:underline inline-flex items-center">
             Daha fazla
             <svg viewBox="0 0 24 24" className="h-[1em] px-0.5">
               <path
@@ -79,7 +79,7 @@ export default function Footer() {
             </Link>
           </Popover.Panel>
         </Popover>
-        <p className="text-[color:var(--color-base-secondary)] leading-4 text-[13px]">
+        <p className="text-[color:var(--color-base-secondary)] leading-4 text-[0.813rem]">
           &copy; {year.getFullYear()} | Uğur & Taner - PROTOTURK
         </p>
       </div>

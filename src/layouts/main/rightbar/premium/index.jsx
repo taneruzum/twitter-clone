@@ -11,7 +11,7 @@ export default function Premium() {
         Premium&apos;a Abone Ol{" "}
       </h6>{" "}
       {/* &apos == tırnak işaretine denk geliyor apostrophe, leading-6 line heigth demek */}
-      <p className="leading-5 text-[15px] font-bold break-words pr-0.5">
+      <p className="leading-5 text-[0.938rem] font-bold break-words pr-0.5">
         Yeni özellikleri açmak için abone ol ve uygun olman durumunda reklam
         geliri payı kazan.
       </p>

@@ -5,6 +5,7 @@ const initialState = {
     id: 2,
     userName: "Uğur Akçay",
     fullName: "@devUgurAkcay",
+    mail: "ugurakcay@gmail.com",
     avatar:
       "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
   },

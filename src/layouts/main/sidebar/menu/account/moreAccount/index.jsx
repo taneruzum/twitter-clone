@@ -1,6 +1,7 @@
 import Line from "~/components/line";
 import { useAccount, useAccounts } from "~/store/auth/hooks"
 import classNames from 'classnames'
+import { Link } from "react-router-dom";
 
 export default function MoreAccount() {
     const currentAccount = useAccount()
@@ -47,9 +48,9 @@ export default function MoreAccount() {
             </button>
             {accounts?.length > 1 && (<button className="text-left px-3  py-2.5 font-bold  w-full  transition-all cursor-pointer  hover:bg-[color:var(--background-secondary)] ">Hesapları Yönet</button>)}
 
-            <button className="text-left px-3  py-2.5 font-bold  w-full transition-all cursor-pointer hover:bg-[color:var(--background-secondary)]">
+            <Link to={"/login"} className="text-left px-3  py-2.5 font-bold  w-full transition-all cursor-pointer hover:bg-[color:var(--background-secondary)]">
                 {currentAccount.fullName} hesabından <br /> çıkış yap
-            </button>
+            </Link>
         </>
     )
 

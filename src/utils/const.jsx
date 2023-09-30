@@ -308,3 +308,25 @@ export const fontSizes = [
   18,
   19,
 ]
+export const footer = [
+
+  "Hakkımızda",
+  "Yardım Merkezi",
+  "Hizmet Şartları",
+  "Gizlilik Politikası",
+  "Çerez Politikası",
+  "Imprint",
+  "Erişilebilirlik",
+  "Reklam bilgisi",
+  "Blog",
+  "Durum",
+  "Kariyer",
+  "Marka Kaynakları",
+  "Reklam",
+  "Pazarlama",
+  "İşletmeler İçin X",
+  "Geliştiriciler",
+  "Dizin",
+  "Ayarlar"
+
+]

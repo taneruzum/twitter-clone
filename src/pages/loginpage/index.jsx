@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LoginButtons from "~/components/login-buttons";
 
-import { useAccount, useAccounts } from "~/store/auth/hooks";
+import { useAccount} from "~/store/auth/hooks";
 import { footer } from "~/utils/const";
 
 export default function LoginPage() {

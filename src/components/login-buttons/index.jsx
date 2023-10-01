@@ -1,9 +1,11 @@
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
-export default function LoginButtons({ className, children, ...props }) {
+export default function LoginButtons({ className, children }) {
   return (
-    <button
+    <Link
+      to="/"
       className={classNames(
         "flex items-center justify-center rounded-full w-[300px] text-[15px] leading-5 outline-none font-bold  p-x-4 h-[40px] gap-1 ",
         {
@@ -19,12 +21,11 @@ export default function LoginButtons({ className, children, ...props }) {
       )}
     >
       {children}
-    </button>
+    </Link>
   );
 }
 
 LoginButtons.propTypes = {
   className: PropTypes.string,
-  props: PropTypes.object,
   children: PropTypes.node,
 };

@@ -20,11 +20,15 @@ export default {
       desktop: "1280px",
       // => @media (min-width: 1280px) { ... }
 
-      custom1:"1500px",
+      custom1: "1500px",
       // => @media (min-width: 1500px) { ... }
 
-      custom2:"1881px",
+      custom2: "1881px",
       // => @media (min-width: 1881px) { ... }
+
+
+
+
     },
   },
   plugins: [],

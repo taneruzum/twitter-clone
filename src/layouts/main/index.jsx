@@ -15,6 +15,11 @@ export default function MainLayout() {
       appearance.backgroundColor.primary
     );
     document.documentElement.style.setProperty(
+      "--background-primary-alpha",
+      appearance.backgroundColor.primaryAlpha
+    );
+
+    document.documentElement.style.setProperty(
       "--background-secondary",
       appearance.backgroundColor.secondary
     );

@@ -15,11 +15,17 @@ import { useEffect, useState } from "react";
 export default function AppearanceModal({ close }) {
   const { backgroundColor, color, fontSize } = useAppearance();
 
-  const [fontSizePercent, setFontSizePercent] = useState(0)
+  const [fontSizePercent, setFontSizePercent] = useState(0);
 
   useEffect(() => {
-    setTimeout(() => setFontSizePercent(document.querySelector(".active-font-size").offsetLeft + 5), 1)
-  }, [fontSize])
+    setTimeout(
+      () =>
+        setFontSizePercent(
+          document.querySelector(".active-font-size").offsetLeft + 5
+        ),
+      1
+    );
+  }, [fontSize]);
 
   return (
     <div className="w-[600px]">
@@ -60,7 +66,10 @@ export default function AppearanceModal({ close }) {
                 X&apos;in merkezinde, tıpkı bunun gibi gönderi denen kısa
                 mesajlar yatar. Gönderiler; fotoğraflar, videolar, bağlantılar,
                 metinler, etiketler ve{" "}
-                <Link className="text-[color:var(--color-primary)] hover:underline" to="/x">
+                <Link
+                  className="text-[color:var(--color-primary)] hover:underline"
+                  to="/x"
+                >
                   @X
                 </Link>{" "}
                 gibi bahsetmeler içerebilir.
@@ -77,25 +86,32 @@ export default function AppearanceModal({ close }) {
             <div className="text-[0.813rem]">Aa</div>
 
             <div className="flex-1 flex justify-between  h-1 rounded-full bg-[color:var(--color-secondary)] mx-3 relative">
-              <div style={{ width: fontSizePercent }} className="absolute h-full top-0 left-0 rounded-full bg-[color:var(--color-primary)]  "></div>
+              <div
+                style={{ width: fontSizePercent }}
+                className="absolute h-full top-0 left-0 rounded-full bg-[color:var(--color-primary)]  "
+              ></div>
               <div className="w-[calc(100%+16px)] flex justify-between absolute -left-[8px] -top-3.5">
-                {fontSizes.map(fs => (
+                {fontSizes.map((fs) => (
                   <button
+                    key={fs} // Ekleme: Eşsiz bir anahtar ekleyin
                     type="button"
                     onClick={() => setFontSize(fs)}
-                    className={classNames("before:absolute before:inset-0 before:rounded-full before:hover:bg-[color:var(--color-primary)] before:opacity-10 flex items-center justify-center  relative w-8 h-8 rounded-full  ",
+                    className={classNames(
+                      "before:absolute before:inset-0 before:rounded-full before:hover:bg-[color:var(--color-primary)] before:opacity-10 flex items-center justify-center relative w-8 h-8 rounded-full",
                       {
                         "active-font-size": fs === fontSize,
-
-
-                      })}>
-                    <div className={classNames("w-3 h-3 rounded-full bg-[color:var(--color-secondary)]",
-                      {
-                        "w-4 h-4": fs === fontSize,
-                        "!bg-[color:var(--color-primary)]": fs <= fontSize,
-
-                      })}></div>
-
+                      }
+                    )}
+                  >
+                    <div
+                      className={classNames(
+                        "w-3 h-3 rounded-full bg-[color:var(--color-secondary)]",
+                        {
+                          "w-4 h-4": fs === fontSize,
+                          "!bg-[color:var(--color-primary)]": fs <= fontSize,
+                        }
+                      )}
+                    ></div>
                   </button>
                 ))}
               </div>

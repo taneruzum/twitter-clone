@@ -22,7 +22,7 @@ export default function More() {
           <div className="text-xl pr-4 ">Daha Fazla</div>
         </div>
       </Popover.Button>
-      <Popover.Panel className="w-[318px] absolute -top-[220px] left-0 bg-[color:var(--background-primary)] shadow-box rounded-xl overflow-hidden z-10">
+      <Popover.Panel className="w-[318px] absolute -top-[220px] left-0 bg-[color:var(--background-primary)] shadow-box rounded-xl overflow-hidden z-10 ">
         <button className="px-4 h-14 w-full  transition-colors inline-flex items-center gap-6 hover:bg-[color:var(--background-secondary)]">
           <div className="w-[26.25px] h-[26.25px] relative">
             <svg viewBox="0 0 24 24" width={26.25} height={26.25}>

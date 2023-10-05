@@ -138,7 +138,7 @@ export const mainMenu = [
     },
   },
   {
-    path: "/approved",
+    path: "/verified",
     title: "Premium",
     icon: {
       active: (

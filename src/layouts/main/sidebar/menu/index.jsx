@@ -41,6 +41,7 @@ export default function Menu() {
                   " p-3 rounded-full transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)]",
                   {
                     "font-bold": isActive,
+                    "!p-2": windowWidth < 1540,
                   }
                 )}
               >
@@ -51,8 +52,7 @@ export default function Menu() {
                     </span>
                   )}
                   {menu?.newPost > 1 && (
-                    <span className="w-[8px] h-[8px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full  absolute -top-1 -right-0 flex justify-center items-center">
-                    </span>
+                    <span className="w-[8px] h-[8px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full  absolute -top-1 -right-0 flex justify-center items-center"></span>
                   )}
                   {!isActive && menu.icon.passive}
                   {isActive && menu.icon.active}

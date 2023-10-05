@@ -9,6 +9,8 @@ import MessagePage from "~/pages/message"
 import ListPage from "~/pages/list"
 import BookmarksPage from "~/pages/bookmarks"
 import LoginPage from "~/pages/loginpage"
+import PremiumPage from "~/modals/premium"
+// import PremiumPage from "~/modals/premium"
 
 
 
@@ -46,6 +48,10 @@ const routes = createBrowserRouter([
             {
                 path: "/marks",
                 element: <BookmarksPage />
+            },
+            {
+                path: "/verified",
+                element: <PremiumPage />
             },
             {
                 path: ":slug",

@@ -9,6 +9,8 @@ import { useEffect } from "react";
 export default function MainLayout() {
   const modal = useModal();
   const appearance = useAppearance();
+
+
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--background-primary",

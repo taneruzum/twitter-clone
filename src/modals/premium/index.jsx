@@ -1,9 +1,11 @@
 import classNames from "classnames";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 
-function PremiumPage() {
+
+function PremiumModal({close}) {
   const [selectButton, setSelectButton] = useState("personal");
 	
   return (
@@ -12,7 +14,7 @@ function PremiumPage() {
         <div className="w-[600px]">
           <div className="w-full h-[3.313rem] px-3 flex items-center justify-start">
             <div className="hover:bg-[color:var(--background-secondary)] rounded-full flex items-center justify-center p-2">
-              <button className="w-[1.25rem] h-[1.25rem]">
+              <button onClick={close} className="w-[1.25rem] h-[1.25rem]">
                 <svg viewBox="0 0 24 24">
                   <g>
                     <path
@@ -108,4 +110,9 @@ function PremiumPage() {
   );
 }
 
-export default PremiumPage;
+PremiumModal.propTypes = {
+  close: PropTypes.any,
+};
+
+
+export default PremiumModal;

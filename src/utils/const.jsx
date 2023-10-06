@@ -1,5 +1,7 @@
 import store from "~/store";
 
+
+
 const states = store.getState()
 
 export const mainMenu = [
@@ -138,7 +140,6 @@ export const mainMenu = [
     },
   },
   {
-    path: "/verified",
     title: "Premium",
     icon: {
       active: (

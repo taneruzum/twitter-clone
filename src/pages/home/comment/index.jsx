@@ -19,7 +19,7 @@ export default function Comment() {
         <div className="pt-[4px] flex flex-col flex-1 ">
           <div className="flex flex-col w-full  border-b border-[color:var(--background-third)]">
             <div className={classNames("pb-3 ",{
-              "pb-0":active===false
+              "!pb-0":active===false
             })}>
               <div className={classNames("border border-[#536471] min-h-[24px] max-w-[94px] px-3 flex items-center gap-x-1 justify-center text-[color:var(--color-primary)] font-bold rounded-full hover:bg-[#1d7df01a]",{
                 "hidden":active===false

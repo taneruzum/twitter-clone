@@ -4,6 +4,8 @@ import { mainMenu } from "~/utils/const";
 import More from "./more";
 import New from "./new";
 import { useState, useEffect } from "react";
+import { setModal } from "~/store/modal/actions";
+
 
 export default function Menu() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -22,6 +24,8 @@ export default function Menu() {
     };
   }, []);
 
+
+
   return (
     <nav className="mt-0.5 mb-1 w-full">
       {mainMenu.map((menu, index) => {
@@ -34,13 +38,13 @@ export default function Menu() {
           return null;
         }
         return (
-          <NavLink to={menu.path} className="py-[3px] block group" key={index}>
+          <NavLink to={menu?.path} onClick={()=>menu.title==="Premium" && setModal("premium")} className="py-[3px] block group" key={index}>
             {({ isActive }) => (
               <div
                 className={classNames(
-                  " p-3 rounded-full transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)]",
+                  " p-3 rounded-full  transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)]",
                   {
-                    "font-bold": isActive,
+                    "font-bold": isActive && menu.title!=="Premium",
                     "!p-2": windowWidth < 1540,
                   }
                 )}

@@ -1,24 +1,27 @@
 import { Popover } from "@headlessui/react";
 import classNames from "classnames";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Button from "~/components/button";
+
 import { useAccount } from "~/store/auth/hooks";
 
 export default function Comment() {
   const [active, setActive] = useState(false);
+  const [whosee, setWhoSee] = useState("Herkes");
+  const [textLength, setTextLength] = useState(0);
   const currentAccount = useAccount();
 
-  const textareaRef = useRef(null);
+  const textareaRef = useRef();
 
-  // Yüksekliği otomatik olarak ayarlamak için bir işlev tanımlayın
-  const handleTextareaInput = () => {
+  const checkTextLength = () => {
     const textarea = textareaRef.current;
-    console.log(textarea);
     if (textarea) {
       textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
+    setTextLength(textarea.value.length);
   };
+  useEffect(() => {}, [textLength]);
 
   return (
     <div className=" pt-1 border-b border-[color:var(--background-third)]">
@@ -37,17 +40,18 @@ export default function Comment() {
                 "!pb-0 hidden": active === false,
               })}
             >
-              <Popover className="relative">
+              <Popover className="relative outline-none">
                 <Popover.Button>
                   <div
                     className={classNames(
                       "border border-[#536471] min-h-[24px] max-w-[94px] px-3 flex items-center gap-x-1 justify-center text-[color:var(--color-primary)] font-bold rounded-full hover:bg-[#1d7df01a]",
                       {
                         hidden: active === false,
+                        "border-[#00ba7c] text-[#00ba7c]":whosee==="Çevre"
                       }
                     )}
                   >
-                    <span>Herkes</span>
+                    <span>{whosee}</span>
                     <svg className="h-[1rem]" viewBox="0 0 24 24">
                       <g>
                         <path
@@ -63,7 +67,12 @@ export default function Comment() {
                   <h3 className="py-1 px-3 font-bold text-xl">
                     Hedef kitle seç
                   </h3>
-                  <button className="w-full flex items-center gap-3 py-3 px-4 hover:bg-[color:var(--background-secondary)]">
+                  <button
+                    onClick={() => {
+                      setWhoSee("Herkes");
+                    }}
+                    className="w-full flex items-center gap-3 py-3 px-4 hover:bg-[color:var(--background-secondary)]"
+                  >
                     <div className=" p-2 bg-[color:var(--color-primary)] rounded-full">
                       <svg className="h-[1.5rem] " viewBox="0 0 24 24">
                         <path
@@ -75,19 +84,26 @@ export default function Comment() {
                     <span className="flex-1 text-left text-[color:var(--color-base)] font-bold">
                       Herkes
                     </span>
-                    <svg
-                      className="text-[color:var(--color-primary)]"
-                      width={20}
-                      height={18.75}
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        fill="currentColor"
-                        d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
-                      ></path>
-                    </svg>
+                    {whosee === "Herkes" && (
+                      <svg
+                        className="text-[color:var(--color-primary)]"
+                        width={20}
+                        height={18.75}
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
+                        ></path>
+                      </svg>
+                    )}
                   </button>
-                  <button className="w-full flex items-center gap-3 py-3 px-4 hover:bg-[color:var(--background-secondary)]">
+                  <button
+                    onClick={() => {
+                      setWhoSee("Çevre");
+                    }}
+                    className="w-full flex items-center gap-3 py-3 px-4 hover:bg-[color:var(--background-secondary)]"
+                  >
                     <div className=" p-2 bg-[#00ba7c] rounded-full">
                       <svg className="h-[1.5rem] " viewBox="0 0 24 24">
                         <path
@@ -96,17 +112,30 @@ export default function Comment() {
                         ></path>
                       </svg>
                     </div>
-                    <div className="flex flex-col text-left font-bold">
-                      <div>
+                    <div className="flex items-center justify-between w-full  font-bold">
+                      <div className="flex flex-col text-left ">
                         <span className="flex-1">Çevre</span>
+                        <div className="font-normal">
+                          0{" "}
+                          <span className="text-[color:var(--color-base-secondary)]">
+                            kişi
+                          </span>{" "}
+                          <span className="underline">Düzenle</span>
+                        </div>
                       </div>
-                      <div className="font-normal">
-                        0{" "}
-                        <span className="text-[color:var(--color-base-secondary)]">
-                          kişi
-                        </span>{" "}
-                        <span className="underline">Düzenle</span>
-                      </div>
+                      {whosee === "Çevre" && (
+                        <svg
+                          className="text-[color:var(--color-primary)]"
+                          width={20}
+                          height={18.75}
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            fill="currentColor"
+                            d="M9.64 18.952l-5.55-4.861 1.317-1.504 3.951 3.459 8.459-10.948L19.4 6.32 9.64 18.952z"
+                          ></path>
+                        </svg>
+                      )}
                     </div>
                   </button>
                 </Popover.Panel>
@@ -119,30 +148,54 @@ export default function Comment() {
                   setActive(true);
                 }}
                 id="auto-expanding-textarea"
-                onInput={handleTextareaInput}
+                onInput={checkTextLength}
                 className=" w-full h-[24px]  bg-[color:var(--background-primary)] outline-none text-[20px] text-[color:var(--color-base)] overflow-y-hidden  resize-none "
                 placeholder="Neler oluyor?"
               />
             </div>
 
-            <div
-              className={classNames(
-                "flex items-center justify-start gap-x-1 text-left font-bold text-[14px] hover:bg-[#1d7df01a] min-h-[24px] max-w-[180px] w-auto text-[color:var(--color-primary)] rounded-full -ml-2 px-3 mb-3  ",
-                {
-                  hidden: active === false,
-                }
-              )}
-            >
-              <svg className="h-[1rem]" viewBox="0 0 24 24">
-                <g>
-                  <path
-                    fill="currentColor"
-                    d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.25 10.48L10.5 17.5l-2-1.5v-3.5L7.5 9 5.03 7.59c1.42-2.24 3.89-3.75 6.72-3.84L11 6l-2 .5L8.5 9l5 1.5-1.75 1.73zM17 14v-3l-1.5-3 2.88-1.23c1.17 1.42 1.87 3.24 1.87 5.23 0 1.3-.3 2.52-.83 3.61L17 14z"
-                  ></path>
-                </g>
-              </svg>
-              <span>Herkes yanıtlayabilir</span>
-            </div>
+            {whosee === "Herkes" && (
+              <div
+                className={classNames(
+                  "flex items-center justify-start gap-x-1 text-left font-bold text-[14px] hover:bg-[#1d7df01a] min-h-[24px] max-w-[180px] w-auto text-[color:var(--color-primary)] rounded-full -ml-2 px-3 mb-3  ",
+                  {
+                    hidden: active === false,
+                  }
+                )}
+              >
+                <svg className="h-[1rem]" viewBox="0 0 24 24">
+                  <g>
+                    <path
+                      fill="currentColor"
+                      d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.25 10.48L10.5 17.5l-2-1.5v-3.5L7.5 9 5.03 7.59c1.42-2.24 3.89-3.75 6.72-3.84L11 6l-2 .5L8.5 9l5 1.5-1.75 1.73zM17 14v-3l-1.5-3 2.88-1.23c1.17 1.42 1.87 3.24 1.87 5.23 0 1.3-.3 2.52-.83 3.61L17 14z"
+                    ></path>
+                  </g>
+                </svg>
+                <span>Herkes yanıtlayabilir</span>
+              </div>
+            )}
+            {whosee === "Çevre" && (
+              <div
+                className={classNames(
+                  "flex items-center justify-start gap-x-1 text-left font-bold text-[14px]  min-h-[24px]  w-auto text-[color:var(--color-primary)] rounded-full -ml-2 px-3 mb-3  ",
+                  {
+                    hidden: active === false,
+                  }
+                )}
+              >
+                <svg viewBox="0 0 24 24" className="h-[1rem] opacity-50">
+                  <g>
+                    <path
+                      fill="currentColor"
+                      d="M17.5 7H17v-.25c0-2.76-2.24-5-5-5s-5 2.24-5 5V7h-.5C5.12 7 4 8.12 4 9.5v9C4 19.88 5.12 21 6.5 21h11c1.39 0 2.5-1.12 2.5-2.5v-9C20 8.12 18.89 7 17.5 7zM13 14.73V17h-2v-2.27c-.59-.34-1-.99-1-1.73 0-1.1.9-2 2-2 1.11 0 2 .9 2 2 0 .74-.4 1.39-1 1.73zM15 7H9v-.25c0-1.66 1.35-3 3-3 1.66 0 3 1.34 3 3V7z"
+                    ></path>
+                  </g>
+                </svg>
+                <span className="w-full opacity-50 pointer-events-none">
+                  Yalnızca seni takip eden Çevren yanıtlayabilir
+                </span>
+              </div>
+            )}
           </div>
           <div className="w-full my-3 -ml-1.5 flex items-center justify-between ">
             <div className="flex gap-x-.5 items-center">
@@ -239,9 +292,47 @@ export default function Comment() {
                 </div>
               </div>
             </div>
-            <Button size="normal" variant="primary">
-              Gönder
-            </Button>
+            <div className="flex items-center gap-x-3">
+              <div
+                className={classNames("flex items-center gap-x-3", {
+                  hidden: textLength === 0,
+                })}
+              >
+                <div className="relative w-5 h-5 rounded-full border-2 border-[color:var(--background-third)] ">
+                  <div
+                    className="radial-progress absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2  "
+                    style={{
+                      "--value": textLength,
+                      "--size": "1.25rem",
+                      "--thickness": "1.5px",
+                    }}
+                  ></div>
+                </div>
+                <div className="w-[1px] h-[31px] border-1 bg-[color:var(--background-third)]"></div>
+                <div className="w-6 h-6 rounded-full border-2 flex items-center justify-center border-[color:var(--background-third)]">
+                  <svg
+                    viewBox="0 0 24 24 "
+                    className="h-[1rem] text-[color:var(--color-primary)]"
+                  >
+                    <g>
+                      <path
+                        fill="currentColor"
+                        d="M11 11V4h2v7h7v2h-7v7h-2v-7H4v-2h7z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </div>
+              <Button
+                className={classNames("", {
+                  "opacity-50 pointer-events-none": textLength === 0,
+                })}
+                size="normal"
+                variant="primary"
+              >
+                Gönder
+              </Button>
+            </div>
           </div>
         </div>
       </div>

@@ -3,10 +3,10 @@ import { numberFormat } from "~/utils/formats";
 
 export default function Post({ post }) {
   return (
-    <div className="px-4 py-3 gap-3 border-b border-[color:var(--background-third)] flex relative before:absolute before:z-[-1] before:transition-colors before:opacity-50 before:inset-0 before:hover:bg-[color:var(--background-secondary)]">
+    <div className=" flex relative px-4 py-3 gap-3 border-b border-[color:var(--background-third)]  before:absolute before:z-[-1] before:transition-colors before:opacity-50 before:inset-0 before:hover:bg-[color:var(--background-secondary)] ">
       <img
         src={post.account.avatar}
-        className="w-10 h-10 rounded-full object-cover"
+        className="w-10 h-10 rounded-full object-cover -z-10"
         alt=""
       />
       <div className="flex-1">

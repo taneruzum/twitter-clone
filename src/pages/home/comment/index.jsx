@@ -14,14 +14,22 @@ export default function Comment() {
   const textareaRef = useRef();
 
   const checkTextLength = () => {
+
     const textarea = textareaRef.current;
+
     if (textarea) {
-      textarea.style.height = "auto";
+      textarea.style.height = 'auto'
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
+
     setTextLength(textarea.value.length);
   };
-  useEffect(() => {}, [textLength]);
+  useEffect(() => {
+
+  }, [textLength]);
+
+
+
 
   return (
     <div className=" pt-1 border-b border-[color:var(--background-third)]">
@@ -47,7 +55,7 @@ export default function Comment() {
                       "border border-[#536471] min-h-[24px] max-w-[94px] px-3 flex items-center gap-x-1 justify-center text-[color:var(--color-primary)] font-bold rounded-full hover:bg-[#1d7df01a]",
                       {
                         hidden: active === false,
-                        "border-[#00ba7c] text-[#00ba7c]":whosee==="Çevre"
+                        "border-[#00ba7c] text-[#00ba7c]": whosee === "Çevre"
                       }
                     )}
                   >
@@ -141,16 +149,24 @@ export default function Comment() {
                 </Popover.Panel>
               </Popover>
             </div>
-            <div className="py-3 w-full text-xl ">
+            <div className="py-3 w-full text-xl h-full">
               <textarea
+
                 ref={textareaRef}
                 onClick={() => {
+
                   setActive(true);
                 }}
                 id="auto-expanding-textarea"
                 onInput={checkTextLength}
-                className=" w-full h-[24px]  bg-[color:var(--background-primary)] outline-none text-[20px] text-[color:var(--color-base)] overflow-y-hidden  resize-none "
+                className={classNames(" w-full max-h-[24px] h-auto  bg-[color:var(--background-primary)] outline-none text-[20px] text-[color:var(--color-base)] overflow-y-hidden  resize-none leading-6", {
+                  "max-h-max ": active === true
+
+
+
+                })}
                 placeholder="Neler oluyor?"
+
               />
             </div>
 
@@ -197,7 +213,7 @@ export default function Comment() {
               </div>
             )}
           </div>
-          <div className="w-full my-3 -ml-1.5 flex items-center justify-between ">
+          <div className="w-full my-3 -ml-1.5 flex items-center justify-between">
             <div className="flex gap-x-.5 items-center">
               <div className=" group flex items-center  hover:cursor-pointer">
                 <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
@@ -302,7 +318,7 @@ export default function Comment() {
                   <div
                     className="radial-progress absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2  "
                     style={{
-                      "--value": textLength,
+                      "--value": (textLength / 5),
                       "--size": "1.25rem",
                       "--thickness": "1.5px",
                     }}

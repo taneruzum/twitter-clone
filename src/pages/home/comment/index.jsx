@@ -173,7 +173,7 @@ export default function Comment() {
             {whosee === "Herkes" && (
               <div
                 className={classNames(
-                  "flex items-center justify-start gap-x-1 text-left font-bold text-[14px] hover:bg-[#1d7df01a] min-h-[24px] max-w-[180px] w-auto text-[color:var(--color-primary)] rounded-full -ml-2 px-3 mb-3  ",
+                  "flex items-center justify-start gap-x-1 text-left font-bold text-[14px] hover:bg-[#1d7df01a] min-h-[24px]  w-auto text-[color:var(--color-primary)] rounded-full -ml-2 px-3 mb-3  ",
                   {
                     hidden: active === false,
                   }

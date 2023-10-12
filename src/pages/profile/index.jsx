@@ -1,8 +1,18 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "~/components/button";
-import { posts, users } from "~/mock/posts";
+import Post from "~/components/post";
+import StickyHeader from "~/components/sticky-header";
+import Tab from "~/components/tab";
+import {  users } from "~/mock/users";
+import {  posts } from "~/mock/posts";
+
 import { numberFormat } from "~/utils/formats";
+import MyPosts from "./posts";
+import Answers from "./answers";
+import Highlights from "./highlights";
+import Media from "./media";
+import Likes from "./likes";
 
 export default function ProfilePage() {
   useEffect(() => {
@@ -11,7 +21,8 @@ export default function ProfilePage() {
   const { fullName } = useParams();
   const user = users.find((user) => user.account.fullName === fullName);
   const post = posts.filter((post) => post.user_id === user.id);
-
+  
+ 
   if (!user) {
     return <div>Kullanıcı yok</div>;
   }
@@ -167,16 +178,16 @@ export default function ProfilePage() {
               className="h-[1.172rem]"
             >
               <g>
-                <path  fill="currentColor" d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"></path>
+                <path fill="currentColor" d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"></path>
               </g>
             </svg>
             <Link
-                to={"/"}
-                className="text-[#1d9bf0] hover:underline text-[0.938rem]"
-              >
-                {" "}
-                {user.presentation?.link}
-              </Link>
+              to={"/"}
+              className="text-[#1d9bf0] hover:underline text-[0.938rem]"
+            >
+              {" "}
+              {user.presentation?.link}
+            </Link>
           </div>
           <div className="flex items-center gap-x-1">
             <svg viewBox="0 0 24 24" className="h-[1.172rem]">
@@ -192,15 +203,44 @@ export default function ProfilePage() {
         </div>
         <div className="flex gap-x-5 items-center justify-start">
           <div className="flex items-center gap-x-1">
-              <span className="text-[14px] text-[color:var(--color-base)] font-bold">{numberFormat(user.following)}</span>
-              <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takip edilen</span>
+            <span className="text-[14px] text-[color:var(--color-base)] font-bold">{numberFormat(user.following)}</span>
+            <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takip edilen</span>
           </div>
           <div className="flex items-center gap-x-1">
-              <span className="text-[14px] text-[color:var(--color-base)] font-bold">{numberFormat(user.followers)}</span>
-              <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takipçi</span>
+            <span className="text-[14px] text-[color:var(--color-base)] font-bold">{numberFormat(user.followers)}</span>
+            <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takipçi</span>
           </div>
         </div>
+        
       </div>
+      <Tab activeTab="posts">
+          <StickyHeader>
+            <Tab.Items>
+              <Tab.Item id="posts">Gönderiler</Tab.Item>
+              <Tab.Item id="answers">Yanıtlar</Tab.Item>
+              <Tab.Item id="highlights">Öne Çıkanlar</Tab.Item>
+              <Tab.Item id="media">Medya</Tab.Item>
+              <Tab.Item id="likes">Beğeni</Tab.Item>
+            </Tab.Items>
+          </StickyHeader>
+          <Tab.Content id="posts">
+            <MyPosts post={post} />
+          </Tab.Content>
+          <Tab.Content id="answers">
+            <Answers />
+          </Tab.Content>
+          <Tab.Content id="highlights">
+            <Highlights />
+          </Tab.Content>
+          <Tab.Content id="media">
+            <Media />
+          </Tab.Content>
+          <Tab.Content id="likes">
+            <Likes />
+          </Tab.Content>
+
+        </Tab>
     </>
   );
 }
+

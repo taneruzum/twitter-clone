@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Button from "../button"
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 
 
@@ -8,7 +9,7 @@ export default function UserCards({ user }) {
     const [following, setFollowing] = useState(false)
     return (
 
-        <button className="w-full py-3 px-4 flex gap-3 transition-colors hover:bg-[color:var(--background-third)]">
+        <Link to={user.account.fullName} className="w-full py-3 px-4 flex gap-3 transition-colors hover:bg-[color:var(--background-third)]">
             <img className="w-10 h-10 rounded-full object-cover " src={user.account.avatar} />
             <div className="flex flex-1  flex-col text-left">
                 <div className=" flex gap-1 items-center text-[0.938rem]  font-bold leading-5 hover:underline hover:underline-offset-2 ">{user.account.fullName}
@@ -39,7 +40,7 @@ export default function UserCards({ user }) {
             )}
 
 
-        </button>
+        </Link>
     )
 }
 

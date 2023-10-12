@@ -1,4 +1,3 @@
-
 export const users = [
   {
     account: {
@@ -9,8 +8,7 @@ export const users = [
     },
     presentation: {
       forWhat: "Eğitim",
-      description:
-        "Taner baba",
+      description: "Taner baba",
       location: "İstanbul,Turkey",
       dateOfJoin: "Mart 2009",
       link: "bit.ly/3XUW7za",
@@ -110,9 +108,10 @@ export const users = [
   },
   {
     account: {
-      username: '@BenKingNTU',
-      fullName: 'Ben King',
-      avatar: 'https://pbs.twimg.com/profile_images/1494092744687501315/9Cn1kdfK_x96.jpg',
+      username: "@BenKingNTU",
+      fullName: "Ben King",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1494092744687501315/9Cn1kdfK_x96.jpg",
       verified: true,
     },
     presentation: {
@@ -127,9 +126,10 @@ export const users = [
   },
   {
     account: {
-      username: '@poondaYZY',
-      fullName: 'TheLifeOfPoonda',
-      avatar: 'https://pbs.twimg.com/profile_images/1548313167733747714/aaOh8kQ4_x96.jpg',
+      username: "@poondaYZY",
+      fullName: "TheLifeOfPoonda",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1548313167733747714/aaOh8kQ4_x96.jpg",
       verified: true,
     },
     presentation: {
@@ -141,13 +141,13 @@ export const users = [
     },
     following: 78,
     followers: 2146200,
-
   },
   {
     account: {
-      username: '@eserozvataf',
-      fullName: 'eser.live',
-      avatar: 'https://pbs.twimg.com/profile_images/1675048688505200641/XTha_KXR_x96.jpg',
+      username: "@eserozvataf",
+      fullName: "eser.live",
+      avatar:
+        "https://pbs.twimg.com/profile_images/1675048688505200641/XTha_KXR_x96.jpg",
       verified: true,
     },
     presentation: {
@@ -159,6 +159,23 @@ export const users = [
     },
     following: 78,
     followers: 2146200,
-  }
-
+  },
+  {
+    account: {
+      username: "@ugurakcaydev",
+      fullName: "Uğur AKÇAY",
+      avatar:
+        "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
+      verified: true,
+    },
+    presentation: {
+      description:
+        "Merhaba! Ben Rowan Cheung, yaşamın tadını çıkarmayı seven sıradan bir insanım. Farklı kültürleri ve insanları tanımaktan keyif alırım. Hayatın güzelliklerini keşfetmek için buradayım.",
+      location: "Join 5000+",
+      dateOfJoin: "Mayıs 2017",
+      link: "rowancheung.com/posts",
+    },
+    following: 78,
+    followers: 2146200,
+  },
 ];

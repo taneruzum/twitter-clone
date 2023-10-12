@@ -9,7 +9,6 @@ const initialState = {
       "https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png",
   },
 
-
   accounts: [
     {
       id: 1,
@@ -20,15 +19,15 @@ const initialState = {
     },
     {
       id: 2,
-      username: "Uğur AKÇAY",
-      fullName: "@ugurakcaydev",
+      username: "@ugurakcaydev",
+      fullName: "Uğur AKÇAY",
       avatar:
         "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
     },
     {
       id: 3,
-      username: "Kadir DEMİRKAYA",
-      fullName: "@kadir_demirbaş",
+      username: "@kadir_demirbaş",
+      fullName: "Kadir Demirkaya",
       avatar:
         "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
     },

@@ -28,7 +28,7 @@ export default function AppearanceModal({ close }) {
   }, [fontSize]);
 
   return (
-    <div className="w-[600px]">
+    <div className="w-[600px] z-30">
       <h3 className="mt-8 mb-3 text-[1.438rem] leading-7 font-extrabold text-center">
         Görünümünü özelleştir
       </h3>

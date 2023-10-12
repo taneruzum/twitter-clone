@@ -22,7 +22,7 @@ function Account() {
 
           <div className="flex flex-col p-1 ">
             <span className=" font-bold text-left flex items-center justify-start  ">
-              {account.userName}
+              {account.fullName}
               <svg
                 viewBox="0 0 24 24"
                 width={18.75}
@@ -38,7 +38,7 @@ function Account() {
             </span>
             <span className="text-[color:var(--color-base-secondary)] text-left">
               {" "}
-              {account.fullName}
+              {account.userName}
             </span>
           </div>
         </div>

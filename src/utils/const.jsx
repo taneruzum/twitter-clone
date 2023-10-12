@@ -1,8 +1,6 @@
 import store from "~/store";
 
-
-
-const states = store.getState()
+const states = store.getState();
 
 export const mainMenu = [
   {
@@ -161,7 +159,7 @@ export const mainMenu = [
     },
   },
   {
-    path: `/${states?.auth?.currentAccount?.userName}`,
+    path: `/${states?.auth?.currentAccount?.fullName}`,
     title: "Profil",
     icon: {
       active: (
@@ -189,59 +187,59 @@ export const topics = [
     title: "Haberler-Gündemdekiler",
     topic: {
       type: "tag",
-      value: "sondakika"
+      value: "sondakika",
     },
-    postCount: 8624
+    postCount: 8624,
   },
   {
     title: "Türkiye tarihinde gündemde",
     topic: {
       type: "query",
-      value: "Operasyon Çocuğu"
+      value: "Operasyon Çocuğu",
     },
-    postCount: 16000
+    postCount: 16000,
   },
   {
     title: "Türkiye tarihinde gündemde",
     topic: {
       type: "query",
-      value: "Arap"
+      value: "Arap",
     },
-    postCount: 57000
+    postCount: 57000,
   },
   {
     title: "Türkiye tarihinde gündemde",
     topic: {
       type: "tag",
-      value: "dilanpolat"
-    },
-  },
-  {
-    title: "Türkiye tarihinde gündemde",
-    topic: {
-      type: "tag",
-      value: "dilanpolat"
+      value: "dilanpolat",
     },
   },
   {
     title: "Türkiye tarihinde gündemde",
     topic: {
       type: "tag",
-      value: "dilanpolat"
+      value: "dilanpolat",
     },
   },
   {
     title: "Türkiye tarihinde gündemde",
     topic: {
       type: "tag",
-      value: "dilanpolat"
+      value: "dilanpolat",
     },
   },
   {
     title: "Türkiye tarihinde gündemde",
     topic: {
       type: "tag",
-      value: "dilanpolat"
+      value: "dilanpolat",
+    },
+  },
+  {
+    title: "Türkiye tarihinde gündemde",
+    topic: {
+      type: "tag",
+      value: "dilanpolat",
     },
   },
   // {
@@ -272,45 +270,37 @@ export const topics = [
   //     value:"dilanpolat"
   //   },
   // },
-
-]
+];
 
 export const colors = [
   {
-    primary: '#1d9bf0',
-    secondary: '#8ecdf8'
+    primary: "#1d9bf0",
+    secondary: "#8ecdf8",
   },
   {
-    primary: '#ffd400',
-    secondary: '#ffea80'
+    primary: "#ffd400",
+    secondary: "#ffea80",
   },
   {
-    primary: '#f91880',
-    secondary: '#fc8cc0'
+    primary: "#f91880",
+    secondary: "#fc8cc0",
   },
   {
-    primary: '#7856ff',
-    secondary: '#bcabff'
+    primary: "#7856ff",
+    secondary: "#bcabff",
   },
   {
-    primary: '#ff7a00',
-    secondary: '#ffbd80'
+    primary: "#ff7a00",
+    secondary: "#ffbd80",
   },
   {
-    primary: '#00ba7c',
-    secondary: '#80ddbe'
-  }
-]
+    primary: "#00ba7c",
+    secondary: "#80ddbe",
+  },
+];
 
-export const fontSizes = [
-  14,
-  15,
-  16,
-  18,
-  19,
-]
+export const fontSizes = [14, 15, 16, 18, 19];
 export const footer = [
-
   "Hakkımızda",
   "Yardım Merkezi",
   "Hizmet Şartları",
@@ -328,6 +318,5 @@ export const footer = [
   "İşletmeler İçin X",
   "Geliştiriciler",
   "Dizin",
-  "Ayarlar"
-
-]
+  "Ayarlar",
+];

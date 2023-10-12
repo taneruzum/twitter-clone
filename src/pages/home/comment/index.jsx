@@ -14,22 +14,16 @@ export default function Comment() {
   const textareaRef = useRef();
 
   const checkTextLength = () => {
-
     const textarea = textareaRef.current;
 
     if (textarea) {
-      textarea.style.height = 'auto'
+      textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
     }
 
     setTextLength(textarea.value.length);
   };
-  useEffect(() => {
-
-  }, [textLength]);
-
-
-
+  useEffect(() => {}, [textLength]);
 
   return (
     <div className=" pt-1 border-b border-[color:var(--background-third)]">
@@ -55,7 +49,7 @@ export default function Comment() {
                       "border border-[#536471] min-h-[24px] max-w-[94px] px-3 flex items-center gap-x-1 justify-center text-[color:var(--color-primary)] font-bold rounded-full hover:bg-[#1d7df01a]",
                       {
                         hidden: active === false,
-                        "border-[#00ba7c] text-[#00ba7c]": whosee === "Çevre"
+                        "border-[#00ba7c] text-[#00ba7c]": whosee === "Çevre",
                       }
                     )}
                   >
@@ -151,43 +145,42 @@ export default function Comment() {
             </div>
             <div className="py-3 w-full text-xl h-full">
               <textarea
-
                 ref={textareaRef}
                 onClick={() => {
-
                   setActive(true);
                 }}
                 id="auto-expanding-textarea"
                 onInput={checkTextLength}
-                className={classNames(" w-full max-h-[24px] h-auto  bg-[color:var(--background-primary)] outline-none text-[20px] text-[color:var(--color-base)] overflow-y-hidden  resize-none leading-6", {
-                  "max-h-max ": active === true
-
-
-
-                })}
+                className={classNames(
+                  " w-full max-h-[24px] h-auto  bg-[color:var(--background-primary)] outline-none text-[20px] text-[color:var(--color-base)] overflow-y-hidden  resize-none leading-6",
+                  {
+                    "max-h-max ": active === true,
+                  }
+                )}
                 placeholder="Neler oluyor?"
-
               />
             </div>
 
             {whosee === "Herkes" && (
-              <div
-                className={classNames(
-                  "flex items-center justify-start gap-x-1 text-left font-bold text-[14px] hover:bg-[#1d7df01a] min-h-[24px]  w-auto text-[color:var(--color-primary)] rounded-full -ml-2 px-3 mb-3  ",
-                  {
-                    hidden: active === false,
-                  }
-                )}
-              >
-                <svg className="h-[1rem]" viewBox="0 0 24 24">
-                  <g>
-                    <path
-                      fill="currentColor"
-                      d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.25 10.48L10.5 17.5l-2-1.5v-3.5L7.5 9 5.03 7.59c1.42-2.24 3.89-3.75 6.72-3.84L11 6l-2 .5L8.5 9l5 1.5-1.75 1.73zM17 14v-3l-1.5-3 2.88-1.23c1.17 1.42 1.87 3.24 1.87 5.23 0 1.3-.3 2.52-.83 3.61L17 14z"
-                    ></path>
-                  </g>
-                </svg>
-                <span>Herkes yanıtlayabilir</span>
+              <div className="w-full flex items-center justify-start">
+                <div
+                  className={classNames(
+                    "flex items-center justify-start gap-x-1 text-left font-bold text-[14px] hover:bg-[#1d7df01a] min-h-[24px]   text-[color:var(--color-primary)] rounded-full -ml-2 px-3.5 mb-3  ",
+                    {
+                      hidden: active === false,
+                    }
+                  )}
+                >
+                  <svg className="h-[1rem]" viewBox="0 0 24 24">
+                    <g>
+                      <path
+                        fill="currentColor"
+                        d="M12 1.75C6.34 1.75 1.75 6.34 1.75 12S6.34 22.25 12 22.25 22.25 17.66 22.25 12 17.66 1.75 12 1.75zm-.25 10.48L10.5 17.5l-2-1.5v-3.5L7.5 9 5.03 7.59c1.42-2.24 3.89-3.75 6.72-3.84L11 6l-2 .5L8.5 9l5 1.5-1.75 1.73zM17 14v-3l-1.5-3 2.88-1.23c1.17 1.42 1.87 3.24 1.87 5.23 0 1.3-.3 2.52-.83 3.61L17 14z"
+                      ></path>
+                    </g>
+                  </svg>
+                  <span>Herkes yanıtlayabilir</span>
+                </div>
               </div>
             )}
             {whosee === "Çevre" && (
@@ -318,7 +311,7 @@ export default function Comment() {
                   <div
                     className="radial-progress absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2  "
                     style={{
-                      "--value": (textLength / 5),
+                      "--value": textLength / 5,
                       "--size": "1.25rem",
                       "--thickness": "1.5px",
                     }}

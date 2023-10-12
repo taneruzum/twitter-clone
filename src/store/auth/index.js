@@ -3,16 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   currentAccount: {
     id: 1,
-    userName: "The TanerTube",
-    fullName: "@mr_TannerTube",
+    userName: "@mr_TannerTube",
+    fullName: "The TanerTube",
     avatar:
       "https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png",
   },
   accounts: [
     {
       id: 1,
-      userName: "The TanerTube",
-      fullName: "@mr_TannerTube",
+      userName: "@mr_TannerTube",
+      fullName: "The TanerTube",
       avatar:
         "https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png",
     },

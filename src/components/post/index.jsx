@@ -1,17 +1,23 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import { numberFormat } from "~/utils/formats";
 
 export default function Post({ post }) {
   return (
     <div className=" flex relative px-4 py-3 gap-3 border-b border-[color:var(--background-third)]  before:absolute before:z-[-1] before:transition-colors before:opacity-50 before:inset-0 before:hover:bg-[color:var(--background-secondary)] z-10">
-      <img
-        src={post.account.avatar}
-        className="w-10 h-10 rounded-full object-cover "
-        alt=""
-      />
+      <Link className="w-10 h-10 rounded-full" to={`/${post.account.fullName}`}>
+        <img
+          src={post.account.avatar}
+          className="w-10 h-10 rounded-full object-cover "
+          alt=""
+        />
+      </Link>
       <div className="flex-1">
         <header className="leading-5 flex items-center gap-2 mb-0.5">
-          <a href="#" className="hover:underline flex items-center font-bold">
+          <Link
+            to={`/${post.account.fullName}`}
+            className="hover:underline flex items-center font-bold"
+          >
             {post.account.fullName}
             {post.account?.verified && (
               <svg
@@ -24,7 +30,7 @@ export default function Post({ post }) {
                 ></path>
               </svg>
             )}
-          </a>
+          </Link>
           <div className="text-[color:var(--color-base-secondary)] flex items-center gap-1.5">
             <div>@{post.account.username}</div>
             <div className="w-0.5 h-0.5 rounded-full bg-[color:var(--color-base-secondary)]" />
@@ -64,7 +70,12 @@ export default function Post({ post }) {
                 {numberFormat(post.stats.repost)}
               </span>
             </div>
-            <div className=" group flex items-center gap-px hover:cursor-pointer">
+            <button
+              onClick={() => {
+                console.log("test");
+              }}
+              className=" group flex items-center gap-px hover:cursor-pointer"
+            >
               <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#f918801a] rounded-full group-hover:text-[#f91880]">
                 <svg viewBox="0 0 24 24" className="h-[1.172rem]">
                   <path
@@ -76,7 +87,7 @@ export default function Post({ post }) {
               <span className="text-[0.813rem] transition-colors text-[color:var(--color-base-secondary)] group-hover:text-[#f91880]">
                 {numberFormat(post.stats.like)}
               </span>
-            </div>
+            </button>
             <div className=" group flex items-center gap-px hover:cursor-pointer">
               <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
                 <svg viewBox="0 0 24 24" className="h-[1.172rem]">

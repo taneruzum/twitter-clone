@@ -53,7 +53,7 @@ const routes = createBrowserRouter([
       //     element: <PremiumPage />
       // },
       {
-        path: ":slug",
+        path: "/:fullName",
         element: <ProfilePage />,
       },
     ],

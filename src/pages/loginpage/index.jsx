@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import LoginButtons from "~/components/login-buttons";
 
-import { useAccount} from "~/store/auth/hooks";
+import { useAccount } from "~/store/auth/hooks";
 import { footer } from "~/utils/const";
 
 export default function LoginPage() {
   const currentAccount = useAccount();
-//   const allAccounts = useAccounts();
+  //   const allAccounts = useAccounts();
   //   const randomNumber = Math.floor(Math.random()*allAccounts.length)
-  console.log(currentAccount, "asdasd");
+
   const date = new Date();
   return (
     <>
@@ -48,7 +48,7 @@ export default function LoginPage() {
                       />
                       <div className=" h-full text-left">
                         <p className="text-[#3c4043] text-[12px] font-medium ">
-                          {currentAccount.userName} oturum açın
+                          {currentAccount.username} oturum açın
                         </p>
                         <p className="text-[#5f6368] text-[11px] ">
                           {currentAccount.mail}

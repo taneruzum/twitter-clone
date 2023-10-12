@@ -1,11 +1,10 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "~/components/button";
-import Post from "~/components/post";
 import StickyHeader from "~/components/sticky-header";
 import Tab from "~/components/tab";
-import {  users } from "~/mock/users";
-import {  posts } from "~/mock/posts";
+import { users } from "~/mock/users";
+import { posts } from "~/mock/posts";
 
 import { numberFormat } from "~/utils/formats";
 import MyPosts from "./posts";
@@ -20,9 +19,11 @@ export default function ProfilePage() {
   }, []);
   const { fullName } = useParams();
   const user = users.find((user) => user.account.fullName === fullName);
-  const post = posts.filter((post) => post.user_id === user.id);
-  
+  const post = posts.filter((post) => post.account.username === user.account.username);
+
  
+
+
   if (!user) {
     return <div>Kullanıcı yok</div>;
   }
@@ -211,35 +212,35 @@ export default function ProfilePage() {
             <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takipçi</span>
           </div>
         </div>
-        
+
       </div>
       <Tab activeTab="posts">
-          <StickyHeader>
-            <Tab.Items>
-              <Tab.Item id="posts">Gönderiler</Tab.Item>
-              <Tab.Item id="answers">Yanıtlar</Tab.Item>
-              <Tab.Item id="highlights">Öne Çıkanlar</Tab.Item>
-              <Tab.Item id="media">Medya</Tab.Item>
-              <Tab.Item id="likes">Beğeni</Tab.Item>
-            </Tab.Items>
-          </StickyHeader>
-          <Tab.Content id="posts">
-            <MyPosts post={post} />
-          </Tab.Content>
-          <Tab.Content id="answers">
-            <Answers />
-          </Tab.Content>
-          <Tab.Content id="highlights">
-            <Highlights />
-          </Tab.Content>
-          <Tab.Content id="media">
-            <Media />
-          </Tab.Content>
-          <Tab.Content id="likes">
-            <Likes />
-          </Tab.Content>
+        <StickyHeader>
+          <Tab.Items>
+            <Tab.Item id="posts">Gönderiler</Tab.Item>
+            <Tab.Item id="answers">Yanıtlar</Tab.Item>
+            <Tab.Item id="highlights">Öne Çıkanlar</Tab.Item>
+            <Tab.Item id="media">Medya</Tab.Item>
+            <Tab.Item id="likes">Beğeni</Tab.Item>
+          </Tab.Items>
+        </StickyHeader>
+        <Tab.Content id="posts">
+          <MyPosts post={post} />
+        </Tab.Content>
+        <Tab.Content id="answers">
+          <Answers />
+        </Tab.Content>
+        <Tab.Content id="highlights">
+          <Highlights />
+        </Tab.Content>
+        <Tab.Content id="media">
+          <Media />
+        </Tab.Content>
+        <Tab.Content id="likes">
+          <Likes />
+        </Tab.Content>
 
-        </Tab>
+      </Tab>
     </>
   );
 }

@@ -1,6 +1,5 @@
 export const posts = [
   {
-    user_id: "2131241241241241",
     id: "1708632465282150796",
     content: `Toplu günaydın, ben her sabah spora devam ama her gün post atmıyorum artık, max 4 günde bir atarım çünkü en fazla 4 foto paylaşılıyormuş 🤣`,
     photos: [
@@ -23,8 +22,8 @@ export const posts = [
     },
   },
   {
-    user_id: "21312812872141241",
-    id: "1708632465282150796",
+
+    id: "1708632465282150333",
     content: `Imagination Land!`,
     photos: [
       "https://pbs.twimg.com/media/F7ZIK8KWgAAP8pH?format=jpg&name=900x900",
@@ -44,7 +43,6 @@ export const posts = [
     },
   },
   {
-    user_id: "21314565464572",
     id: "1708704613141270652",
     content: `Less than a week since OpenAI started rolling out ChatGPT vision.
 
@@ -68,7 +66,6 @@ And people have been busy executing god-like tasks.
     },
   },
   {
-    user_id: "28673453241241241",
     id: "1708810187170087410",
     content: `İstanbul'da Cumhuriyet'in 100. yılına özel, 100 gün boyunca Yerebatan Sarnıcı, Şerefiye Sarnıcı, Miniatürk ve Panorama 1453 Tarih Müzesi ücretsiz ziyaret edilebilecek.`,
     photos: [
@@ -91,7 +88,6 @@ And people have been busy executing god-like tasks.
     },
   },
   {
-    user_id: "21315235621241241",
     id: "1708707876628476134",
     content: `OpenAI's latest DALL-E 3 model is officially available free to try on Bing.
 
@@ -117,6 +113,7 @@ Prompt in ALT tag + more examples in thread:`,
       view: 99999999,
     },
   },
+  
 ];
 
 

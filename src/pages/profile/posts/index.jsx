@@ -7,7 +7,7 @@ export default function MyPosts({ post }) {
 
     return (
         <>
-            {post.map((p) => <Post post={p} />)}
+            {post.map((p,index) => <Post post={p} key={index} />)}
         </>
     )
 }

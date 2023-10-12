@@ -38,7 +38,7 @@ function Account() {
             </span>
             <span className="text-[color:var(--color-base-secondary)] text-left">
               {" "}
-              {account.userName}
+              {account.username}
             </span>
           </div>
         </div>

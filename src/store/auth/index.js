@@ -3,29 +3,31 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   currentAccount: {
     id: 1,
-    userName: "@mr_TannerTube",
+    username: "@mr_TannerTube",
     fullName: "The TanerTube",
     avatar:
       "https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png",
   },
+
+
   accounts: [
     {
       id: 1,
-      userName: "@mr_TannerTube",
+      username: "@mr_TannerTube",
       fullName: "The TanerTube",
       avatar:
         "https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png",
     },
     {
       id: 2,
-      userName: "Uğur AKÇAY",
+      username: "Uğur AKÇAY",
       fullName: "@ugurakcaydev",
       avatar:
         "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",
     },
     {
       id: 3,
-      userName: "Kadir DEMİRKAYA",
+      username: "Kadir DEMİRKAYA",
       fullName: "@kadir_demirbaş",
       avatar:
         "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png",

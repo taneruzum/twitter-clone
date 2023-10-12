@@ -72,7 +72,7 @@ export default function Post({ post }) {
             </div>
             <button
               onClick={() => {
-                console.log("test");
+                
               }}
               className=" group flex items-center gap-px hover:cursor-pointer"
             >

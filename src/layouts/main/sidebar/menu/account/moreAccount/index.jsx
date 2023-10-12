@@ -22,7 +22,7 @@ export default function MoreAccount() {
                         <img className='w-10 h-10 rounded-full ' src={account?.avatar} alt="" />
 
                         <div className='flex flex-col '>
-                            <span className=' font-bold text-left '>{account?.userName}</span>
+                            <span className=' font-bold text-left '>{account?.username}</span>
                             <span className='text-[color:var(--color-base-secondary)] text-left'> {account?.fullName}</span>
                         </div>
 

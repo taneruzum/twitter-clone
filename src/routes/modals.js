@@ -1,5 +1,6 @@
 import AppearanceModal from "~/modals/appearance";
 import PremiumModal from "~/modals/premium";
+import ReplyThePost from "~/modals/replyThePost";
 
 const modals = [
   {
@@ -9,6 +10,11 @@ const modals = [
   {
     name: "premium",
     element: PremiumModal,
+  },
+  {
+    name: "replyThePost",
+    element: ReplyThePost,
+    
   },
 ];
 

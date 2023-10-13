@@ -1,8 +1,29 @@
+import classNames from "classnames";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { setModal } from "~/store/modal/actions";
 import { numberFormat } from "~/utils/formats";
 
 export default function Post({ post }) {
+  const [likePost, setLikePost] = useState(null);
+
+  useEffect(() => {}, [setLikePost]);
+  
+  const controlReplyThePost =(post)=>{
+    setModal("replyThePost",post)
+    console.log(post);
+  }
+
+  const controlLikePost = (post) => {
+    const updatedPost = { ...post }; // post nesnesini kopyala
+    updatedPost.stats.like = likePost
+      ? post.stats.like - 1
+      : post.stats.like + 1; // like sayısını güncelle
+    setLikePost(!likePost);
+  };
+
+
   return (
     <div className=" flex relative px-4 py-3 gap-3 border-b border-[color:var(--background-third)]  before:absolute before:z-[-1] before:transition-colors before:opacity-50 before:inset-0 before:hover:bg-[color:var(--background-secondary)] z-10">
       <Link className="w-10 h-10 rounded-full" to={`/${post.account.fullName}`}>
@@ -44,7 +65,7 @@ export default function Post({ post }) {
             }}
           />
           <div className="flex justify-between -ml-1.5 mt-1.5">
-            <div className=" group flex items-center gap-px hover:cursor-pointer">
+            <button onClick={()=>controlReplyThePost(post)} className=" group flex items-center gap-px hover:cursor-pointer">
               <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
                 <svg viewBox="0 0 24 24" className="h-[1.172rem]">
                   <path
@@ -56,7 +77,7 @@ export default function Post({ post }) {
               <span className="text-[0.813rem] transition-colors text-[color:var(--color-base-secondary)] group-hover:text-[#1d9bf0]">
                 {numberFormat(post.stats.comments)}
               </span>
-            </div>
+            </button>
             <div className="group flex items-center gap-px hover:cursor-pointer">
               <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#00ba7c1a] rounded-full group-hover:text-[#00ba7c]">
                 <svg viewBox="0 0 24 24" className="h-[1.172rem]">
@@ -72,19 +93,59 @@ export default function Post({ post }) {
             </div>
             <button
               onClick={() => {
-                
+                controlLikePost(post);
               }}
-              className=" group flex items-center gap-px hover:cursor-pointer"
+              className={classNames(
+                " group flex items-center gap-px hover:cursor-pointer",
+                {}
+              )}
             >
-              <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#f918801a] rounded-full group-hover:text-[#f91880]">
-                <svg viewBox="0 0 24 24" className="h-[1.172rem]">
-                  <path
-                    fill="currentColor"
-                    d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
-                  />
-                </svg>
+              {/* {likePost && (
+                <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#f918801a] rounded-full group-hover:text-[#f91880]">
+                  <svg viewBox="0 0 24 24" className="h-[1.172rem]">
+                    <g>
+                      <path
+                        fill="currentColor"
+                        d="M20.884 13.19c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              )} */}
+              <div
+                className={classNames(
+                  "w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#f918801a] rounded-full group-hover:text-[#f91880]",
+                  {
+                    "!text-[#f91880]": likePost === true,
+                  }
+                )}
+              >
+                {likePost ? (
+                  <svg viewBox="0 0 24 24" className="h-[1.172rem]">
+                    <g>
+                      <path
+                        fill="currentColor"
+                        d="M20.884 13.19c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
+                      ></path>
+                    </g>
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" className="h-[1.172rem]">
+                    <path
+                      fill="currentColor"
+                      d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
+                    />
+                  </svg>
+                )}
               </div>
-              <span className="text-[0.813rem] transition-colors text-[color:var(--color-base-secondary)] group-hover:text-[#f91880]">
+              <span
+                className={classNames(
+                  "text-[0.813rem] transition-colors text-[color:var(--color-base-secondary)] group-hover:text-[#f91880]",
+                  {
+                    "!text-[#f91880]": likePost === true,
+                  }
+                )}
+              >
                 {numberFormat(post.stats.like)}
               </span>
             </button>

@@ -11,7 +11,7 @@ function Account() {
       <Popover.Button
         className={
           "flex max-h-[65.06px] justify-between items-center w-full p-3 rounded-full  transition-all hover:bg-[color:var(--background-third)] outline-none"
-        }
+        }//p-2 olacak en büyük font size olduğunda p-2 olmasa da oluyormuş
       >
         <div className="flex gap-x-2 items-center">
           <img
@@ -19,9 +19,10 @@ function Account() {
             src={account.avatar}
             alt=""
           />
-
-          <div className="flex flex-col p-1 ">
-            <span className=" font-bold text-left flex items-center justify-start  ">
+          {/*p-1 gidecek en büyük font size olduğunda*/}
+          <div className="flex flex-col p-[0.20rem]  "> 
+          
+            <span className="text-[0.938rem] text-[color:var(--color-base)] font-bold text-left flex items-center justify-start  ">
               {account.fullName}
               <svg
                 viewBox="0 0 24 24"

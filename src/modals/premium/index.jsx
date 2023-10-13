@@ -9,8 +9,7 @@ function PremiumModal({close}) {
   const [selectButton, setSelectButton] = useState("personal");
 	
   return (
-    <div className="fixed inset-0 bg-[color:var(--background-modal)] flex items-center justify-center z-20">
-      <div className="bg-[color:var(--background-primary)] max-w-[600px] max-h-[90vh] overflow-x-hidden rounded-2xl">
+    
         <div className="w-[600px]">
           <div className="w-full h-[3.313rem] px-3 flex items-center justify-start">
             <div className="hover:bg-[color:var(--background-secondary)] rounded-full flex items-center justify-center p-2">
@@ -105,8 +104,6 @@ function PremiumModal({close}) {
             </div>
           </div>
         </div>
-      </div>
-    </div>
   );
 }
 

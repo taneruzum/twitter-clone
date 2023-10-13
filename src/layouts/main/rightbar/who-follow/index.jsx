@@ -1,49 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SidebarSection from "~/components/sidebar-section";
 import UserCards from "~/components/user-cards";
-
 import { users } from "~/mock/users";
 import { useAccount } from "~/store/auth/hooks";
 
 export default function WhoFollow() {
-  const [whoFollowArray] = useState([]);
-
+  const [whoFollowArray, setWhoFollowArray] = useState([]);
   const currentAccount = useAccount();
 
-  let selectedNumbers = new Set();
+  useEffect(() => {
+    if (whoFollowArray.length === 0) {
+      let selectedNumbers = new Set();
 
-  while (selectedNumbers.size < 3) {
-    let randomNumber = Math.floor(Math.random() * users.length);
-    selectedNumbers.add(randomNumber);
-  }
+      while (selectedNumbers.size < 3) {
+        let randomNumber = Math.floor(Math.random() * users.length);
+        selectedNumbers.add(randomNumber);
+      }
 
-  let uniqueNumbers = Array.from(selectedNumbers);
-  for (const uniq of uniqueNumbers) {
-      whoFollowArray.push(users[uniq]);
-  }
-  whoFollowArray.map((item) => {
-    console.log(item, "spodkfposkdf");
-  });
-  //   uniqueNumbers.map((randomNumber) => {
-  //     let i = 0;
-  //     whoFollowArray[i] = users[randomNumber];
-  //     i++;
-  //   });
-  //   console.log(whoFollowArray);
+      let uniqueNumbers = Array.from(selectedNumbers);
+      let selectedUsers = uniqueNumbers.map((uniq) => users[uniq]);
 
-  //   whoFollowArray.map((item) => {
-  //     console.log(item, "itemm");
-  //   });
+      setWhoFollowArray(selectedUsers);
+    }
+  }, [whoFollowArray]);
 
   return (
     <SidebarSection
       title="Kimi takip etmeli"
       more={`/connect_people?user_id=${currentAccount.id}`}
     >
-      {whoFollowArray.map((user) => {
+      {whoFollowArray.map((user, key) => {
         if (user.account.username !== currentAccount.username) {
-          return <UserCards user={user} key={user.account.username} />;
+          return <UserCards user={user} key={key} />;
         }
+        return null;
       })}
     </SidebarSection>
   );

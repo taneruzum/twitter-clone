@@ -1,11 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Button from "~/components/button";
 import StickyHeader from "~/components/sticky-header";
 import Tab from "~/components/tab";
 import { users } from "~/mock/users";
 import { posts } from "~/mock/posts";
-
 import { numberFormat } from "~/utils/formats";
 import MyPosts from "./posts";
 import Answers from "./answers";
@@ -14,15 +13,15 @@ import Media from "./media";
 import Likes from "./likes";
 
 export default function ProfilePage() {
+  const [following, setFollowing] = useState(false);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const { fullName } = useParams();
   const user = users.find((user) => user.account.fullName === fullName);
-  const post = posts.filter((post) => post.account.username === user.account.username);
-
- 
-
+  const post = posts.filter(
+    (post) => post.account.username === user.account.username
+  );
 
   if (!user) {
     return <div>Kullanıcı yok</div>;
@@ -31,7 +30,12 @@ export default function ProfilePage() {
   return (
     <>
       <div className="px-4 gap-x-7 flex items-center justify-start h-[3.313rem] sticky top-0 z-20 bg-[color:var(--background-primary-alpha)]  backdrop-blur-md">
-        <div className="p-2 hover:bg-[color:var(--background-secondary)] rounded-full cursor-pointer -ml-2">
+        <button
+          onClick={() => {
+            window.location.href = "/";
+          }}
+          className="p-2 hover:bg-[color:var(--background-secondary)] rounded-full cursor-pointer -ml-2"
+        >
           <svg viewBox="0 0 24 24" className="h-[1.25rem]">
             <g>
               <path
@@ -40,7 +44,7 @@ export default function ProfilePage() {
               ></path>
             </g>
           </svg>
-        </div>
+        </button>
         <div className="flex flex-col items-start justify-center ">
           <div className="  flex gap-x-1 items-center justify-start   ">
             <span className="text-[1.25rem] font-bold text-[color:var(--color-base)] ">
@@ -97,9 +101,25 @@ export default function ProfilePage() {
                 </g>
               </svg>
             </div>
-            <Button size="normal" variant="white">
-              Takip et
-            </Button>
+            {following ? (
+              <div>
+                <Button
+                  variant="white-outline"
+                  size="small"
+                  onClick={() => setFollowing(false)}
+                  className="whitespace-nowrap group "
+                >
+                  <div className="flex group-hover:hidden">Takip ediliyor</div>
+                  <div className="hidden group-hover:flex">Takibi bırak</div>
+                </Button>
+              </div>
+            ) : (
+              <div>
+                <Button size="small" onClick={() => setFollowing(true)}>
+                  Takip et
+                </Button>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex flex-1 flex-col items-start justify-center mt-1 mb-3">
@@ -174,12 +194,12 @@ export default function ProfilePage() {
             {user.presentation?.location}
           </div>
           <div className="flex items-center gap-x-1">
-            <svg
-              viewBox="0 0 24 24"
-              className="h-[1.172rem]"
-            >
+            <svg viewBox="0 0 24 24" className="h-[1.172rem]">
               <g>
-                <path fill="currentColor" d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"></path>
+                <path
+                  fill="currentColor"
+                  d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02.71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"
+                ></path>
               </g>
             </svg>
             <Link
@@ -204,15 +224,22 @@ export default function ProfilePage() {
         </div>
         <div className="flex gap-x-5 items-center justify-start">
           <div className="flex items-center gap-x-1">
-            <span className="text-[14px] text-[color:var(--color-base)] font-bold">{numberFormat(user.following)}</span>
-            <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takip edilen</span>
+            <span className="text-[14px] text-[color:var(--color-base)] font-bold">
+              {numberFormat(user.following)}
+            </span>
+            <span className="text-[14px] text-[color:var(--color-base-secondary)] ">
+              Takip edilen
+            </span>
           </div>
           <div className="flex items-center gap-x-1">
-            <span className="text-[14px] text-[color:var(--color-base)] font-bold">{numberFormat(user.followers)}</span>
-            <span className="text-[14px] text-[color:var(--color-base-secondary)] ">Takipçi</span>
+            <span className="text-[14px] text-[color:var(--color-base)] font-bold">
+              {numberFormat(user.followers)}
+            </span>
+            <span className="text-[14px] text-[color:var(--color-base-secondary)] ">
+              Takipçi
+            </span>
           </div>
         </div>
-
       </div>
       <Tab activeTab="posts">
         <StickyHeader>
@@ -239,9 +266,7 @@ export default function ProfilePage() {
         <Tab.Content id="likes">
           <Likes />
         </Tab.Content>
-
       </Tab>
     </>
   );
 }
-

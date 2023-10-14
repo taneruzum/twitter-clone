@@ -213,7 +213,7 @@ export default function AppearanceModal({ close }) {
                 });
                 setBackgroundColor({
                   name: "dark",
-                  primary: "#15202ba6",
+                  primary: "#15202b",
                   secondary: "#1e2732",
                   third: "#263340",
                   modal: "#5b708366",

@@ -1,35 +1,16 @@
 import { Popover, Disclosure } from "@headlessui/react";
 import classNames from "classnames";
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Line from "~/components/line";
 import { setModal } from "~/store/modal/actions";
 
 export default function More() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    // Ekran genişliği değiştiğinde windowWidth state'ini güncelle
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    // Event listener'ı ekleyin ve component unmount olduğunda kaldırın
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
   return (
     <Popover className="relative text-[color:var(--color-base)]">
       <Popover.Button className="py-[3px] block group outline-none w-full text-left  ">
         <div
           className={classNames(
-            "p-3 rounded-full  transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)]",
-            {
-              "!p-2": windowWidth < 1540,
-            }
+            "py-2 px-2.5 rounded-full  transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)] desktop:py-3"
           )}
         >
           <div className="w-[26.25px] h-[26.25px] relative">
@@ -42,10 +23,10 @@ export default function More() {
               </g>
             </svg>
           </div>
-          <div className="text-xl pr-4 ">Daha fazla</div>
+          <div className="text-xl pr-4">Daha fazla</div>
         </div>
       </Popover.Button>
-      <Popover.Panel className="w-[318px] absolute -top-[220px] left-0 bg-[color:var(--background-primary)] shadow-box rounded-xl overflow-hidden  ">
+      <Popover.Panel className="w-[318px] absolute -top-[220px] left-0 bg-[color:var(--background-primary)] shadow-box rounded-xl overflow-hidden ">
         <button className="px-4 h-14 w-full  transition-colors inline-flex items-center gap-6 hover:bg-[color:var(--background-secondary)]">
           <div className="w-[26.25px] h-[26.25px] relative">
             <svg viewBox="0 0 24 24" width={26.25} height={26.25}>

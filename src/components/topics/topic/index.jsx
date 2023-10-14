@@ -33,7 +33,7 @@ export default function Topic({ item }) {
         </svg>
       </button> */}
       <Popover className=" absolute top-1 right-2">
-        <Popover.Button className="w-[34.75px] h-[34.75px] rounded-full outline-none  flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors">
+        <Popover.Button className="w-[34.75px] h-[34.75px] rounded-full outline-none text-[color:var(--color-base-secondary)] flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors">
           <svg viewBox="0 0 24 24" width={18.75} height={18.75}>
             <path
               fill="currentColor"

@@ -61,7 +61,7 @@ And people have been busy executing god-like tasks.
     stats: {
       comments: 25,
       repost: 12,
-      like: 99,
+      like: 100,
       view: 2341,
     },
   },

@@ -32,7 +32,7 @@ export default function Tab({ children, activeTab }) {
     const content = contents.find(c => c.props.id === active)
     return (
 
-        <TabContext.Provider value={data}>
+        <TabContext.Provider value={data} >
             {items}
             {content}
         </TabContext.Provider>

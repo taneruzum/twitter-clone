@@ -3,6 +3,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 
 function TextInputBottom({ textLength }) {
+  let kalan = 280 - textLength;
   return (
     <div className="w-full my-3 -ml-1.5 flex items-center justify-between">
       <div className="flex gap-x-.5 items-center">
@@ -105,15 +106,31 @@ function TextInputBottom({ textLength }) {
             hidden: textLength === 0,
           })}
         >
-          <div className="relative w-5 h-5 rounded-full border-2 border-[color:var(--background-third)] ">
+          <div
+            className={classNames(
+              "relative w-6 h-6 rounded-full border-2 border-[color:var(--background-third)] flex items-center justify-center transition-all duration-500 ",
+              {
+                "w-9 h-9 text-yellow-500": kalan <= 20,
+                " !text-red-500": kalan <= 10,
+              }
+            )}
+          >
             <div
-              className="radial-progress absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2  "
+              className={classNames(
+                "radial-progress w-full h-full  absolute top-1/2 left-1/2  -translate-y-1/2 -translate-x-1/2 text-sm after:!hidden flex items-center justify-center",
+                {}
+              )}
               style={{
-                "--value": textLength / 5,
-                "--size": "1.25rem",
+                "--value": textLength / 2.8,
                 "--thickness": "1.5px",
               }}
-            ></div>
+            >
+              {kalan <= 20 && (
+                <div className="text-[color:var(--color-base-secondary)]">
+                  {kalan}
+                </div>
+              )}
+            </div>
           </div>
           <div className="w-[1px] h-[31px] border-1 bg-[color:var(--background-third)]"></div>
           <div className="w-6 h-6 rounded-full border-2 flex items-center justify-center border-[color:var(--background-third)]">

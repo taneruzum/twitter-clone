@@ -2,10 +2,10 @@ import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 import { mainMenu } from "~/utils/const";
 import More from "./more";
-import New from "./new";
+// import New from "./new";
 import { useState, useEffect } from "react";
 import { setModal } from "~/store/modal/actions";
-
+import Button from "~/components/button";
 
 export default function Menu() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -24,10 +24,8 @@ export default function Menu() {
     };
   }, []);
 
-
-
   return (
-    <nav className="mt-0.5 mb-1 w-full">
+    <nav className="mt-0.5 w-full">
       {mainMenu.map((menu, index) => {
         if (
           // daha iyi bir yöntem bulana kadar en iyisi bu
@@ -38,20 +36,24 @@ export default function Menu() {
           return null;
         }
         return (
-          <NavLink to={menu?.path} onClick={()=>menu.title==="Premium" && setModal("premium")} className="py-[3px] block group" key={index}>
+          <NavLink
+            to={menu?.path}
+            onClick={() => menu.title === "Premium" && setModal("premium")}
+            className="py-[3px] block group"
+            key={index}
+          >
             {({ isActive }) => (
               <div
                 className={classNames(
-                  " p-3 rounded-full  transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)]",
+                  " py-2 px-2.5 rounded-full  transition-colors inline-flex items-center gap-5 group-hover:bg-[color:var(--background-third)] desktop:py-3",
                   {
-                    "font-bold": isActive && menu.title!=="Premium",
-                    "!p-2": windowWidth < 1540,
+                    "font-bold": isActive && menu.title !== "Premium",
                   }
                 )}
               >
                 <div className="w-[26.25px] h-[26.25px] relative">
                   {menu?.notification && (
-                    <span className="w-[18px] h-[18px] bg-[color:var(--color-primary)] text-[color:var(--background-primary)]  rounded-full  absolute -top-1.5 -right-1 flex justify-center items-center text-[11px]">
+                    <span className="w-[18px] h-[18px] bg-[color:var(--color-primary)] text-[color:var(--color-base)]  rounded-full  absolute -top-1.5 -right-1 flex justify-center items-center text-[11px]">
                       {menu?.notification}
                     </span>
                   )}
@@ -61,7 +63,7 @@ export default function Menu() {
                   {!isActive && menu.icon.passive}
                   {isActive && menu.icon.active}
                 </div>
-                <div className={"text-xl pr-4 "}>{menu.title}</div>
+                <div className={"text-xl pr-4"}>{menu.title}</div>
               </div>
             )}
           </NavLink>
@@ -69,7 +71,9 @@ export default function Menu() {
       })}
 
       <More />
-      <New />
+      <div className="py-3 mt-2 w-[90%]">
+        <Button size="large">Gönder</Button>
+      </div>
     </nav>
   );
 }

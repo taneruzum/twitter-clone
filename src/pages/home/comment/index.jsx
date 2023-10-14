@@ -206,7 +206,7 @@ export default function Comment() {
               </div>
             )}
           </div>
-          <TextInputBottom textLength={textLength}/>
+          <TextInputBottom textLength={textLength} />
         </div>
       </div>
     </div>

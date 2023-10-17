@@ -3,6 +3,7 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import StatsModal from "~/modals/stats";
 import { setModal } from "~/store/modal/actions";
 import { numberFormat } from "~/utils/formats";
 
@@ -334,7 +335,9 @@ export default function Post({ post }) {
                 {numberFormat(post.stats.like)}
               </span>
             </button>
-            <div className=" group flex items-center gap-px hover:cursor-pointer">
+            <button onClick={() => {
+              setModal("statsmodal")
+            }} className=" group flex items-center gap-px hover:cursor-pointer">
               <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
                 <svg viewBox="0 0 24 24" className="h-[1.172rem]">
                   <path
@@ -346,7 +349,7 @@ export default function Post({ post }) {
               <span className="text-[0.813rem] transition-colors text-[color:var(--color-base-secondary)] group-hover:text-[#1d9bf0]">
                 {numberFormat(post.stats.view)}
               </span>
-            </div>
+            </button>
             <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] hover:bg-[#1d9bf01a] rounded-full hover:text-[#1d9bf0] hover:cursor-pointer">
               <svg viewBox="0 0 24 24" className="h-[1.172rem]">
                 <path
@@ -358,7 +361,7 @@ export default function Post({ post }) {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

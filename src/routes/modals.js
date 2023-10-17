@@ -2,6 +2,7 @@ import AppearanceModal from "~/modals/appearance";
 import PlanModal from "~/modals/planModal";
 import PremiumModal from "~/modals/premium";
 import ReplyThePost from "~/modals/replyThePost";
+import StatsModal from "~/modals/stats";
 
 const modals = [
   {
@@ -15,12 +16,15 @@ const modals = [
   {
     name: "replyThePost",
     element: ReplyThePost,
-    
   },
   {
-    name:"planModal",
-    element: PlanModal
-  }
+    name: "planModal",
+    element: PlanModal,
+  },
+  {
+    name: "statsmodal",
+    element: StatsModal,
+  },
 ];
 
 export default modals;

@@ -3,9 +3,11 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import StatsModal from "~/modals/stats";
+// import StatsModal from "~/modals/stats";
 import { setModal } from "~/store/modal/actions";
 import { numberFormat } from "~/utils/formats";
+import Photo from "./photo";
+import Poll from "./poll";
 
 export default function Post({ post }) {
   // const [photos, setPhotos] = useState([]);
@@ -35,7 +37,7 @@ export default function Post({ post }) {
   };
 
   return (
-    <div className=" flex relative px-4 py-3 gap-3 border-b border-[color:var(--background-third)]  before:absolute before:z-[-1] before:transition-colors before:opacity-50 before:inset-0 before:hover:bg-[color:var(--background-secondary)] z-10">
+    <div className=" flex relative px-4 py-3 gap-3 border-b border-[color:var(--background-third)]  before:absolute before:z-[-1] before:transition-colors before:opacity-50 before:inset-0 before:hover:bg-[color:var(--background-secondary)]">
       <Link className="w-10 h-10 rounded-full" to={`/${post.account.fullName}`}>
         <img
           src={post.account.avatar}
@@ -69,7 +71,7 @@ export default function Post({ post }) {
               <div>17s</div>
             </div>
           </div>
-          <Popover className=" absolute top-1/2 -translate-y-1/2 right-0 <-50 ">
+          <Popover className=" absolute top-1/2 -translate-y-1/2 right-0 ">
             <Popover.Button className="w-[34.75px] h-[34.75px] rounded-full outline-none text-[color:var(--color-base-secondary)]  flex items-center justify-center hover:bg-[#1d9bf01a] hover:text-[#1d9bf0] transition-colors">
               <svg viewBox="0 0 24 24" width={18.75} height={18.75}>
                 <path
@@ -78,7 +80,7 @@ export default function Post({ post }) {
                 />
               </svg>
             </Popover.Button>
-            <Popover.Panel className="absolute w-[384px] top-1 right-2 grid bg-[color:var(--background-primary)] shadow-box max-w-[calc(384px)] overflow-hidden rounded-xl">
+            <Popover.Panel className="absolute w-[384px] top-1 right-2 grid bg-[color:var(--background-primary)] shadow-box max-w-[calc(384px)] overflow-hidden rounded-xl z-50">
               <button
                 type="button"
                 className="hover:bg-white/[0.05] transition-colors text-left flex items-center justify-start gap-3 p-3  text-[0.938rem] leading-5 font-bold"
@@ -220,6 +222,8 @@ export default function Post({ post }) {
               __html: post.content.replace(/\n/g, "<br>"),
             }}
           />
+          {post.type === 'photo' && <Photo photos={post.photos}/>}
+          {post.type==='poll' && <Poll poll={post.poll}/>}
           {/* {post.photos && (
             <div
               className={classNames(

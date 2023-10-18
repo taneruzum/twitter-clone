@@ -2,6 +2,23 @@ export const users = [
   {
     account: {
       avatar:
+        "https://pbs.twimg.com/profile_images/1200814302820753410/AhAh3xlU_400x400.png",
+      username: "prototurkcom",
+      fullName: "./prototurk",
+    },
+    presentation: {
+      forWhat: "Eğitim",
+      description: "Prototürk",
+      location: "Eskişehir,Turkey",
+      dateOfJoin: "Mart 2005",
+      link: "bit.ly/3XUW7za",
+    },
+    following: 3191,
+    followers: 137200,
+  },
+  {
+    account: {
+      avatar:
         "https://pbs.twimg.com/profile_images/1587169050345578496/-2e8bQkG_x96.png",
       username: "@mr_TannerTube",
       fullName: "The TanerTube",

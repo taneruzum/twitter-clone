@@ -2,38 +2,9 @@ import { Fragment, useState } from 'react'
 import PropTypes from "prop-types";
 import Button from "~/components/button";
 import ListBoxComponent from '~/components/listBox';
+import {aylar, Days, Hours, Minutes} from "../../utils/times"
 
 
-const aylar = [
-  'Ocak',
-  'Şubat',
-  'Mart',
-  'Nisan',
-  'Mayıs',
-  'Haziran',
-  'Temmuz',
-  'Ağustos',
-  'Eylül',
-  'Ekim',
-  'Kasım',
-  'Aralık',
-];
-
-const Days = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
-
-const Hours = [
-  '00', '01', '02', '03', '04', '05', '06', '07', '08', '09',
-  '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
-  '20', '21', '22', '23'
-];
-const Minutes = [
-  '00', '01', '02', '03', '04', '05', '06', '07', '08', '09',
-  '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
-  '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
-  '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
-  '40', '41', '42', '43', '44', '45', '46', '47', '48', '49',
-  '50', '51', '52', '53', '54', '55', '56', '57', '58', '59'
-];
 
 const date = new Date()
 const Years = [
@@ -56,8 +27,8 @@ export default function PlanModal({ close }) {
 
   const date = (new Date());
   const [selectedMonth, setSelectedMonth] = useState(aylar[0])
-  const [selectedDays, setSelectedDays] = useState(Days[date.toLocaleDateString('tr-TR', { day: '2-digit' })])
   const [selectedYear, setSelectedYear] = useState(Years[0])
+  const [selectedDays, setSelectedDays] = useState(Days[date.toLocaleDateString('tr-TR', { day: '2-digit' })])
   const [selectedHour, setSelectedHour] = useState(date.getHours())
   const [selectedMinute, setSelectedMinute] = useState(date.getMinutes())
 

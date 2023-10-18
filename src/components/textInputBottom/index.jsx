@@ -1,10 +1,12 @@
 import Button from "../button";
 import classNames from "classnames";
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { setModal } from "~/store/modal/actions";
 
-function TextInputBottom({ textLength }) {
+function TextInputBottom({ textLength, setPoll }) {
   let kalan = 280 - textLength;
+
   return (
     <div className="w-full my-3 -ml-1.5 flex items-center justify-between">
       <div className="flex gap-x-.5 items-center">
@@ -38,7 +40,7 @@ function TextInputBottom({ textLength }) {
             </svg>
           </div>
         </div>
-        <div className=" group flex items-center  hover:cursor-pointer">
+        <button onClick={() => setPoll(true)} className=" group flex items-center  hover:cursor-pointer ">
           <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
             <svg
               className="h-[1.25rem] text-[color:var(--color-primary)]"
@@ -52,7 +54,7 @@ function TextInputBottom({ textLength }) {
               </g>
             </svg>
           </div>
-        </div>
+        </button>
         <div className=" group flex items-center  hover:cursor-pointer">
           <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
             <svg
@@ -69,7 +71,7 @@ function TextInputBottom({ textLength }) {
           </div>
         </div>
 
-        <button onClick={()=>{setModal("planModal")}}  className=" group flex items-center  hover:cursor-pointer">
+        <button onClick={() => { setModal("planModal") }} className=" group flex items-center  hover:cursor-pointer">
           <div className="w-[2.172rem] h-[2.172rem] transition-colors flex items-center justify-center text-[color:var(--color-base-secondary)] group-hover:bg-[#1d9bf01a] rounded-full group-hover:text-[#1d9bf0]">
             <svg
               className="h-[1.25rem] text-[color:var(--color-primary)]"

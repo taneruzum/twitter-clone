@@ -1,9 +1,11 @@
 import { Popover } from "@headlessui/react";
 import classNames from "classnames";
 import { useState, useRef, useEffect } from "react";
-import TextInputBottom from "~/components/textInputBottom";
 
+import TextInputBottom from "~/components/textInputBottom";
 import { useAccount } from "~/store/auth/hooks";
+import PollForm from "~/components/commentPollForm";
+
 
 export default function Comment() {
   const [active, setActive] = useState(false);
@@ -23,7 +25,10 @@ export default function Comment() {
 
     setTextLength(textarea.value.length);
   };
-  useEffect(() => {}, [textLength]);
+  useEffect(() => { }, [textLength]);
+
+  //*Anket 
+  const [poll, setPoll] = useState(false)
 
   return (
     <div className=" pt-1 border-b border-[color:var(--background-third)]">
@@ -157,8 +162,11 @@ export default function Comment() {
                     "max-h-max ": active === true,
                   }
                 )}
-                placeholder="Neler oluyor"
+                placeholder={poll ? 'Soru sor' : 'Neler oluyor?'}
               />
+              {poll && (
+                <PollForm setPoll={setPoll} />
+              )}
             </div>
 
             {whosee === "Herkes" && (
@@ -206,7 +214,7 @@ export default function Comment() {
               </div>
             )}
           </div>
-          <TextInputBottom textLength={textLength} />
+          <TextInputBottom textLength={textLength} setPoll={setPoll} />
         </div>
       </div>
     </div>

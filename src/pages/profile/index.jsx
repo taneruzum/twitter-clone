@@ -18,9 +18,11 @@ export default function ProfilePage() {
     window.scrollTo(0, 0);
   }, []);
   const { fullName } = useParams();
-  const user = users.find((user) => user.account.fullName === fullName);
+  const user = users.find(
+    (user) => user?.account?.fullName.replace(/[^a-zA-Z0-9]/g, "") === fullName
+  );
   const post = posts.filter(
-    (post) => post.account.username === user.account.username
+    (post) => post.account.username === user?.account?.username
   );
 
   if (!user) {
@@ -48,7 +50,7 @@ export default function ProfilePage() {
         <div className="flex flex-col items-start justify-center ">
           <div className="  flex gap-x-1 items-center justify-start   ">
             <span className="text-[1.25rem] font-bold text-[color:var(--color-base)] ">
-              {user.account.fullName}
+              {user?.account.fullName}
             </span>
             {user.account?.verified && (
               <svg

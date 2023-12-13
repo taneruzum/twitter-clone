@@ -1,4 +1,4 @@
-import PollForm from "~/components/commentPollForm";
+
 import AppearanceModal from "~/modals/appearance";
 import PlanModal from "~/modals/planModal";
 import PremiumModal from "~/modals/premium";

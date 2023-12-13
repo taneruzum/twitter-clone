@@ -19,11 +19,18 @@ export default function ProfilePage() {
   }, []);
   const { fullName } = useParams();
   const user = users.find(
-    (user) => user?.account?.fullName.replace(/[^a-zA-Z0-9]/g, "") === fullName
+    (user) =>
+      user?.account?.fullName.replace(/[^\w\sÇŞĞİÖÜçşğıöü]/g, "") === fullName
   );
   const post = posts.filter(
     (post) => post.account.username === user?.account?.username
   );
+  users.find((user) => {
+    console.log(
+      user.account.fullName.replace(/[^\w\sÇŞĞİÖÜçşğıöü]/g, ""),
+      "user"
+    );
+  });
 
   if (!user) {
     return <div>Kullanıcı yok</div>;

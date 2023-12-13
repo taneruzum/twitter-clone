@@ -212,6 +212,7 @@ export default function AppearanceModal({ close }) {
                   baseSecondary: "#8b98a5",
                 });
                 setBackgroundColor({
+                  
                   name: "dark",
                   primary: "#15202b",
                   secondary: "#1e2732",
